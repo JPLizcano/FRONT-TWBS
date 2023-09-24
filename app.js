@@ -121,8 +121,8 @@ app.get("/agendbar", (req, res) => {
   });
 });
 
-app.get("/pagoboni", (req, res) => {
-  res.render("pagoBoni", {
+app.get("/gastope", (req, res) => {
+  res.render("gastOpe", {
     twbs: "The Warrior Barber Shop",
   });
 });
