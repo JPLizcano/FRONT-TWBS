@@ -6,15 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         events: [ // Aquí defines tus citas agendadas
             {
                 title: 'Cita 1',
-                start: '2023-09-10 10:00', // Fecha y hora de inicio
-            },
-            {
-                title: 'Cita 2',
-                start: '2023-09-15 14:30', // Fecha y hora de inicio
-            },
-            {
-                title: 'Cita 3',
-                start: '2023-09-25 16:00', // Fecha y hora de inicio
+                start: '2023-10-01 10:00', // Fecha y hora de inicio
             },
             // Agrega más citas según sea necesario
         ],

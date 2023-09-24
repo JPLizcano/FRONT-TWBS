@@ -73,6 +73,12 @@ app.get("/usuclient", (req, res) => {
   });
 });
 
+app.get("/usubarb", (req, res) => {
+  res.render("usuariosBarb", {
+    twbs: "The Warrior Barber Shop",
+  });
+});
+
 app.get("/insu", (req, res) => {
   res.render("insumos", {
     twbs: "The Warrior Barber Shop",

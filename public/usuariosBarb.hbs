@@ -1,0 +1,113 @@
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="build/images/logo-login-white.png" />
+    <title>The Warrior Baber Shop</title>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{!
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script> }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Iconos -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/f6414e1f4b.js" crossorigin="anonymous"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="./build/css/estilos.css" rel="stylesheet" />
+    <link href="./build/css/userBarb.css" rel="stylesheet" />
+
+  </head>
+
+  <body onload="listarUsuarios()">
+    {{>headerClient}}
+    <main class="content">
+      <div>
+        <h1 class="d-flex justify-content-center tit">información de usuario</h1>
+      </div>
+      <div class="contBtnAgg"><a class="btnsConfi" id="btnAgg"><i class="fa fa-user-pen"></i></a></div>
+      <div class="infoContent">
+        <div id="infoClient">
+        </div>
+      </div>
+      <div id="fondo2">
+        <div id="formulario2">
+          <div class="container">
+            <h3 class="center">Actualizar información de usuario</h3>
+            <div class="d-flex justify-content-center contForm">
+              <i class="fa-solid fa-envelope iconForm"></i>
+              <div class="input-field inpForm">
+                <input type="email" id="Correo2" class="form2" data-length="40" />
+                <label for="Correo" id="corL2">Ingrese su correo</label>
+              </div>
+              <i class="fa-solid fa-lock iconForm"></i>
+              <div class="input-field inpForm">
+                <input type="password" id="Pass2" class="form2" data-length="25" />
+                <label for="Pass" id="passL2">Ingrese una contraseña</label>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center contForm">
+              <i class="fa-solid fa-user iconForm"></i>
+              <div class="input-field">
+                <input type="text" id="Usu2" class="form2" data-length="20" disabled />
+                <label for="Usu" id="usuL2">Ingrese un nombre de usuario</label>
+              </div>
+              <i class="fa-solid fa-mobile-screen iconForm"></i>
+              <div class="centrar">
+                <div class="input-field inpForm">
+                  <input type="text" id="numCel2" class="form2" data-length="15" oninput="validarCelu('numCel2')" />
+                  <label for="numCel" id="numCelL2">Ingrese su número de celular</label>
+                </div>
+              </div>
+            </div>
+            <div class="center">
+              <button id="actUsu" type="button" class="waves-effect waves-perso btn black" onclick="modificarUsu()">Actualizar</button>
+              <button id="canUsu2" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1 class="d-flex justify-content-center tit">Reporte de servicios atendidos</h1>
+      </div>
+      <div class="arregTable">
+        <table class="table table-striped table-hover tableBarb" id="tablaUsuarios">
+          <thead>
+            <tr>
+              <th>Tipo de servicio</th>
+              <th>Pago</th>
+            </tr>
+          </thead>
+          <tbody id="tablaRoles">
+            <tr>
+              <td>Corte de cabello</td>
+              <td>$ 15.000</td>
+            </tr>
+            <tr>
+              <td>Corte de barba</td>
+              <td>$ 18.000</td>
+            </tr>
+            <tr>
+              <td>Diseño de cejas</td>
+              <td>$ 20.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    {{>footer}}
+    <script src="./build/js/funcionesClient.js"></script>
+    <script src="./build/js/userClient.js"></script>
+  </body>
+
+</html>
