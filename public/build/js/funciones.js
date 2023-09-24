@@ -101,9 +101,13 @@ $(document).click(function (event) {
 
 $(document).ready(function () {
   $(
-    "input#nuevoRol, input#actRol, input#Usu, input#Correo, input#Nombre, input#Apellidos, input#numCel, input#Pass, input#Usu2, input#Correo2, input#Nombre2, input#Apellidos2, input#numCel2, input#Pass2, input#porceGana"
+    "input#nuevoRol, input#actRol, input#Usu, input#Correo, input#Nombre, input#Apellidos, input#numCel, input#Pass, input#Usu2, input#Correo2, input#Nombre2, input#Apellidos2, input#numCel2, input#Pass2, input#porceGana, input#tipoGasto, input#descGast, input#Valor, input#tipoGasto2, input#descGast2, input#Valor2"
   ).characterCounter();
 });
+
+// $(document).ready(function () {
+//   $(".datepicker").datepicker();
+// }); para hacer el selector de fecha con materialize
 
 $(document).ready(function () {
   $("select").formSelect();
@@ -123,3 +127,4 @@ navLinks.forEach(function (link) {
     link.classList.add("activo");
   }
 });
+

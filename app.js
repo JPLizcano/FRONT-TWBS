@@ -103,6 +103,12 @@ app.get("/cal", (req, res) => {
   });
 });
 
+app.get("/age", (req, res) => {
+  res.render("agenda", {
+    twbs: "The Warrior Barber Shop",
+  });
+});
+
 app.get("/agend", (req, res) => { 
   res.render("agendaCitas", {
     twbs: "The Warrior Barber Shop",

@@ -619,7 +619,8 @@ input {
 }
 
 button.btn.btnActivo,
-button.btn.btnInactivo {
+button.btn.btnInactivo,
+button.btn.btnFinalizado {
   background-color: rgb(0, 130, 0) !important;
   color: white !important;
   font-size: 0.8vw;
@@ -636,7 +637,8 @@ button.btn.btnInactivo {
 }
 
 button.btn.btnActivo:hover,
-button.btn.btnInactivo:hover {
+button.btn.btnInactivo:hover,
+button.btn.btnFinalizado:hover {
   transition: 0.3s;
   background-color: rgb(0, 160, 0) !important;
   box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.7);
@@ -648,6 +650,14 @@ button.btn.btnInactivo {
 
 button.btn.btnInactivo:hover {
   background-color: rgb(160, 0, 0) !important;
+}
+
+button.btn.btnFinalizado {
+  background-color: rgb(40, 50, 170) !important;
+}
+
+button.btn.btnFinalizado:hover {
+  background-color: rgb(30, 40, 190) !important;
 }
 
 footer {
