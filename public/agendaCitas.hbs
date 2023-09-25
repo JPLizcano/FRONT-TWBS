@@ -36,10 +36,14 @@
       <div>
         <h1 class="d-flex justify-content-center tit">Agenda</h1>
       </div>
+      <div class="contBtnAgg">
+        <a class="btnsConfi" id="btnAgg"><i class="fa fa-calendar-plus"></i></a>
+        <a class="btnsConfi" id="btnAct"><i class="fa fa-square-pen"></i></a>
+      </div>
       <div class="contCalAgen">
         <iframe src="cal" frameborder="0"></iframe>
         {{!-- <iframe src="age" frameborder="0"></iframe> --}}
-        <table class="table table-striped table-hover" id="tablaUsuarios">
+        <table class="table table-striped" id="tablaUsuarios">
           <thead>
             <tr>
               <th>Horario</th>
@@ -52,25 +56,99 @@
           </thead>
           <tbody id="tablaRoles">
             <tr>
-              <td>8:00 am</td>
+              <td rowspan="2" class="horarios">8:00 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>8:30 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>9:00 am</td>
+              <td rowspan="2" class="horarios">8:30 am</td>
+              <td rowspan="2" class="evento"> Barbero 1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>9:30 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="evento"></td>
             </tr>
             <tr>
-              <td>10:00 am</td>
+              <td rowspan="2" class="horarios">9:00 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">9:30 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">10:00 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">10:30 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="contBtnAgg">
-        <a class="btnsConfi" id="btnAgg"><i class="fa fa-plus"></i></a>
+      <div>
+        <h1 class="d-flex justify-content-center tit">Historia de citas</h1>
       </div>
       <table class="table table-striped table-hover" id="tablaUsuarios">
         <thead>
@@ -126,9 +204,122 @@
           </tr>
         </tbody>
       </table>
+        <div id="fondo">
+          <div class="scrollForm" id="scrollForm">
+            <div id="formulario">
+              <div class="container">
+                <h3 class="center">Agendar una cita</h3>
+                <div class="d-flex justify-content-center contForm">
+                  <i class="fa-solid fa-calendar-day iconForm"></i>
+                  <div class="input-field inpForm">
+                    <input type="date" id="Fecha" class="form1" data-length="4" />
+                    <label for="Fecha">Fecha</label>
+                  </div>
+                  <i class="fa-solid fa-clock iconForm"></i>
+                  <div class="input-field inpForm">
+                    <input type="time" id="Hora" class="form1" data-length="20" />
+                    <label for="Hora">Hora</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center contForm">
+                  <i class="fa-solid fa-clipboard-list iconForm"></i>
+                  <div class="input-field inpForm">
+                  <select id="selServ" class="">
+                    <option value="0" selected disabled>Seleccione el servicio</option>
+                    <option value="0">Corte de cabello</option>
+                    <option value="0">Corte de barba</option>
+                    <option value="0">Diseño de cejas</option>
+                  </select>
+                  </div>
+                  <i class="fa-solid fa-dollar-sign iconForm"></i>
+                  <div class="input-field inpForm">
+                  <select id="selBarb" class="">
+                    <option value="0" selected disabled>Seleccione un barbero</option>
+                    <option value="0">Barbero 1</option>
+                    <option value="0">Barbero 2</option>
+                    <option value="0">Barbero 3</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center contForm">
+                  <i class="fa-solid fa-file-pen iconForm"></i>
+                  <div class="input-field inpForm">
+                    <input type="text" id="Desc" class="form1" data-length="150" placeholder="Sin descripción" />
+                    <label for="Desc">Añade una descripción (opcional)</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center contForm">
+                  <p class="valTotInsu"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
+                </div>
+
+                <div class="center">
+                  <button id="Agendar" type="button" class="waves-effect waves-perso btn black">Agendar</button>
+                  <button id="canAgend" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="fondo2">
+          <div class="scrollForm" id="scrollForm2">
+            <div id="formulario2">
+              <div class="container">
+                <h3 class="center">Actualizar información de cita</h3>
+                <div class="d-flex justify-content-center contForm">
+                  <i class="fa-solid fa-calendar-day iconForm"></i>
+                  <div class="input-field inpForm">
+                    <input type="date" id="Fecha2" class="form1" data-length="4" />
+                    <label for="Fecha2">Fecha</label>
+                  </div>
+                  <i class="fa-solid fa-clock iconForm"></i>
+                  <div class="input-field inpForm">
+                    <input type="time" id="Hora2" class="form1" data-length="20" />
+                    <label for="Hora2">Hora</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center contForm">
+                  <i class="fa-solid fa-clipboard-list iconForm"></i>
+                  <div class="input-field inpForm">
+                  <select id="selServ2" class="">
+                    <option value="0" selected disabled>Seleccione el servicio</option>
+                    <option value="0">Corte de cabello</option>
+                    <option value="0">Corte de barba</option>
+                    <option value="0">Diseño de cejas</option>
+                  </select>
+                  </div>
+                  <i class="fa-solid fa-dollar-sign iconForm"></i>
+                  <div class="input-field inpForm2">
+                  <select id="selBarb2" class="">
+                    <option value="0" selected disabled>Seleccione un barbero</option>
+                    <option value="0">Barbero 1</option>
+                    <option value="0">Barbero 2</option>
+                    <option value="0">Barbero 3</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center contForm">
+                  <i class="fa-solid fa-file-pen iconForm"></i>
+                  <div class="input-field inpForm">
+                    <input type="text" id="Desc2" class="form1" data-length="150" placeholder="Sin descripción" />
+                    <label for="Desc2" id="descL2">Añade una descripción (opcional)</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center contForm">
+                  <p class="valTotInsu"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
+                </div>
+
+                <div class="center">
+                  <button id="actAgend" type="button" class="waves-effect waves-perso btn black">Actualizar</button>
+                  <button id="canAgend2" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </main>
     {{>footer}}
     <script src="./build/js/funciones.js"></script>
+    <script src="./build/js/agendaCitas.js"></script>
   </body>
 
 </html>

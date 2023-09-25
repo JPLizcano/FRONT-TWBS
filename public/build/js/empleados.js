@@ -251,6 +251,8 @@ const abrirFormAct = (Usu) => {
   document.getElementById("corL2").classList.add("labelActEmpl");
   document.getElementById("numCelL2").classList.add("labelActEmpl");
   document.getElementById("passL2").classList.add("labelActEmpl");
+  document.getElementById("usuL2").classList.add("labelActEmpl");
+  document.getElementById("porceGanaL2").classList.add("labelActEmpl");
   document.getElementById("Usu2").value = Usu;
 
   fetch(urlEmpleados, {
@@ -269,6 +271,7 @@ const abrirFormAct = (Usu) => {
             document.getElementById("Correo2").value = empleado.correo;
             document.getElementById("numCel2").value = empleado.celular;
             document.getElementById("Pass2").value = empleado.password;
+            document.getElementById("porceGana2").value = empleado.porcentajeGanancias;
             break;
           }
         }

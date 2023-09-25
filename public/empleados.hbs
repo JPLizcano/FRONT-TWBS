@@ -135,8 +135,9 @@
               </div>
             </div>
             <div class="d-flex justify-content-center contForm">
-              <div class="input-field d-none">
-                <input type="text" id="Usu2" class="form2" data-length="20" />
+              <i class="fa-solid fa-user iconForm"></i>
+              <div class="input-field inpForm">
+                <input type="text" id="Usu2" class="form2" data-length="20" disabled/>
                 <label for="Usu" id="usuL2">Ingrese un nombre de empleado</label>
               </div>
               <i class="fa-solid fa-mobile-screen iconForm"></i>
@@ -147,6 +148,13 @@
                 </div>
               </div>
             </div>
+            <div class="d-flex justify-content-center">
+              <i class="fa-solid fa-percent iconForm"></i>
+              <div class="input-field inpForm">
+                <input type="number" id="porceGana2" class="form1" data-length="3" />
+                <label for="porceGana2" id="porceGanaL2">Ingrese el porcentaje de ganancias</label>
+              </div>
+            </div>
             <div class="center">
               <button id="actUsu" type="button" class="waves-effect waves-perso btn black" onclick="modificarEmpl()">Actualizar</button>
               <button id="CanEmp2" type="button" class="waves-effect waves-perso btn black">Cerrar</button>
@@ -154,7 +162,113 @@
           </div>
         </div>
       </div>
-      <iframe src="cal" frameborder="0"></iframe>
+      <div class="contCalAgen">
+        <iframe src="cal" frameborder="0"></iframe>
+        {{!-- <iframe src="age" frameborder="0"></iframe> --}}
+        <table class="table table-striped" id="tablaUsuarios">
+          <thead>
+            <tr>
+              <th>Horario</th>
+              <th>Braulio</th>
+              <th>Juan</th>
+              <th>Luis</th>
+              <th>Alvaro</th>
+              <th>Mauricio</th>
+            </tr>
+          </thead>
+          <tbody id="tablaRoles">
+            <tr>
+              <td rowspan="2" class="horarios">8:00 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">8:30 am</td>
+              <td rowspan="2" class="evento"> Barbero 1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="evento"></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">9:00 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">9:30 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">10:00 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="horarios">10:30 am</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
     {{>footer}}
     <script src="./build/js/funciones.js"></script>

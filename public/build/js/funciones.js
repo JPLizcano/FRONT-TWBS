@@ -101,7 +101,7 @@ $(document).click(function (event) {
 
 $(document).ready(function () {
   $(
-    "input#nuevoRol, input#actRol, input#Usu, input#Correo, input#Nombre, input#Apellidos, input#numCel, input#Pass, input#Usu2, input#Correo2, input#Nombre2, input#Apellidos2, input#numCel2, input#Pass2, input#porceGana, input#tipoGasto, input#descGast, input#Valor, input#tipoGasto2, input#descGast2, input#Valor2"
+    "input#nuevoRol, input#actRol, input#Usu, input#Correo, input#Nombre, input#Apellidos, input#numCel, input#Pass, input#Usu2, input#Correo2, input#Nombre2, input#Apellidos2, input#numCel2, input#Pass2, input#porceGana, input#tipoGasto, input#descGast, input#Valor, input#tipoGasto2, input#descGast2, input#Valor2, input#Cant, input#nomInsu, input#Desc, input#preUnit, input#stockMax, input#stockMin, input#Cant2, input#nomInsu2, input#Desc2, input#preUnit2, input#stockMax2, input#stockMin2"
   ).characterCounter();
 });
 
@@ -127,4 +127,3 @@ navLinks.forEach(function (link) {
     link.classList.add("activo");
   }
 });
-

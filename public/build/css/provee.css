@@ -3,7 +3,6 @@
     justify-content: end;
     font-size: 1vw;
     align-items: center;
-    margin-top: 1vw;
   }
   
   #buscador {
@@ -137,3 +136,10 @@
     -webkit-box-shadow: 0 0 0 #f44336 !important;
     box-shadow: 0 0 0 0 #f44336 !important;
   }
+
+  [type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  margin: 0 0.5vw;
+}

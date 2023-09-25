@@ -1,38 +1,3 @@
-iframe {
-  width: 55%;
-  height: 30vw;
-}
-
-.tit {
-  margin: 2vw 0 2vw 0;
-}
-
-.contBtnAgg {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btnsConfi {
-  width: 3vw;
-  height: 3vw;
-  transition: 0.5s;
-  text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.5);
-}
-
-i.fa.fa-plus {
-  margin: 0 !important;
-}
-
-a#btnMod {
-  display: -webkit-inline-box;
-  width: 3vw;
-  height: 3vw;
-  color: black;
-  transition: 0.5s;
-  text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.5);
-}
-
 .acciones {
   display: flex;
   justify-content: end;
@@ -87,7 +52,7 @@ i.iconForm {
 .select-wrapper input.select-dropdown {
   border-bottom: 0.1vw solid #9e9e9e;
   height: 3vw;
-  width: 15vw;
+  width: 20vw;
   line-height: 1vw;
   font-size: 1vw;
   margin: 0 0 0 0;
@@ -173,58 +138,6 @@ textarea.materialize-textarea.invalid:focus,
   box-shadow: 0 0 0 0 #f44336 !important;
 }
 
-th {
-  width: 10% !important;
-  background-color: rgb(100, 0, 0);
-  color: white;
-  font-weight: 100;
-  height: 4vw;
-  border-color: black !important;
-  border-radius: 0;
-}
-
-.contCalAgen {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.horarios {
-  height: 6vw;
-}
-
-.horarios:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.evento {
-  background-color: rgba(150, 0, 0, 0.5);
-  color: white;
-  border-color: black !important;
-}
-
-.evento:hover {
-  background-color: rgba(150, 10, 10, 0.6);
-}
-
-td:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.fa-square-pen,
-.fa-calendar-plus {
-  font-size: 1.5vw;
-}
-
-p {
-  font-size: 1vw;
-  margin: 0 0 0 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-[type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled), button:not(:disabled) {
-  margin: 0 0.5vw;
+.tit {
+  margin: 2vw 0 2vw 0;
 }

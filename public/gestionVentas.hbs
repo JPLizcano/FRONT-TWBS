@@ -25,12 +25,79 @@
     <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="./build/css/estilos.css" rel="stylesheet" />
+    <link href="./build/css/gestionVentas.css" rel="stylesheet" />
 
   </head>
 
   <body>
   {{>header}}
     <main class="content">
+    <div>
+      <h1 class="d-flex justify-content-center tit">Pagos realizados por los clientes</h1>
+    </div>
+      <table class="table table-striped table-hover" id="tablaUsuarios">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Tipo de servicio</th>
+            <th>Forma de pago</th>
+            <th>Pago</th>
+          </tr>
+        </thead>
+        <tbody id="tablaRoles">
+          <tr>
+            <td>LuisGM</td>
+            <td>Corte de cabello</td>
+            <td>Nequi</td>
+            <td>$ 15.000</td>
+          </tr>
+          <tr>
+            <td>MartinPO</td>
+            <td>Corte de barba</td>
+            <td>Transferencia bancaria</td>
+            <td>$ 20.000</td>
+          </tr>
+          <tr>
+            <td>MarcosEJ</td>
+            <td>Diseño de cejas</td>
+            <td>Efectivo</td>
+            <td>$ 15.000</td>
+          </tr>
+        </tbody>
+      </table>
+    <div>
+      <h1 class="d-flex justify-content-center tit">Reporte de servicios atendidos</h1>
+    </div>
+      <table class="table table-striped table-hover" id="tablaUsuarios">
+        <thead>
+          <tr>
+            <th>Usuario del cliente</th>
+            <th>Usuario del barbero</th>
+            <th>Tipo de servicio</th>
+            <th>Pago</th>
+          </tr>
+        </thead>
+        <tbody id="tablaRoles">
+          <tr>
+            <td>LuisGM</td>
+            <td>Barbero 1</td>
+            <td>Corte de cabello</td>
+            <td>$ 15.000</td>
+          </tr>
+          <tr>
+            <td>MartinPO</td>
+            <td>Barbero 2</td>
+            <td>Corte de barba</td>
+            <td>$ 20.000</td>
+          </tr>
+          <tr>
+            <td>MarcosEJ</td>
+            <td>Barbero 3</td>
+            <td>Diseño de cejas</td>
+            <td>$ 15.000</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
   {{>footer}}
     <script src="./build/js/funciones.js"></script>
