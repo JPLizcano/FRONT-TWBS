@@ -4,33 +4,43 @@
   font-weight: normal;
   font-style: normal;
 }
-
+span.character-counter {
+  float: none !important;
+  position: inherit;
+  font-size: 1vw !important;
+  left: 17vw;
+}
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 1vw;
+  transition: 0.5s;
 }
-
 ::selection {
   background-color: rgb(150, 0, 0);
   color: white;
 }
-
-#imgLog2 {
-  padding: 2vw;
+#contentLogo,
+.formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-
 #imgLog1,
 #imgLog2 {
   position: absolute;
-  top: 0;
   left: 0;
   height: 100%;
   width: 50%;
 }
-
+#imgLog2 {
+  padding: 2vw;
+  height: auto;
+  width: 50%;
+}
 .formulario {
   position: absolute;
   top: 0;
@@ -41,58 +51,50 @@ body {
   transition: 0.5s;
   padding: 3vw 2vw;
 }
-
 .center {
   font-size: 0.8vw;
 }
-
 h3 {
   transition: 0.5s;
   font-size: 3vw !important;
   margin: 0 0 2vw 0;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
-
 .input-field {
   transition: 0.5s;
   position: relative;
-  margin: 4vw 1vw 0vw 1vw;
+  margin: 4vw 1vw 0vw 2vw;
   height: 5vw;
 }
-
 .input-field .prefix {
   cursor: default;
   position: absolute;
   width: 2vw;
   font-size: 2vw;
   transition: color 0.5s;
-  top: 0.5vw;
-  right: 18vw;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  top: 0.6vw;
+  right: 19.5vw;
+  text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.5);
 }
-
-.input-field .prefix~input,
-.input-field .prefix~textarea,
-.input-field .prefix~label,
-.input-field .prefix~.validate~label,
-.input-field .prefix~.helper-text,
-.input-field .prefix~.autocomplete-content {
+.input-field .prefix ~ input,
+.input-field .prefix ~ textarea,
+.input-field .prefix ~ label,
+.input-field .prefix ~ .validate ~ label,
+.input-field .prefix ~ .helper-text,
+.input-field .prefix ~ .autocomplete-content {
   font-size: 1vw;
   margin-left: 3vw;
   width: 17vw;
   height: 3vw;
   color: rgb(0, 0, 0);
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.5);
 }
-
 .input-field .helper-text {
   color: rgb(0, 0, 0);
 }
-
 .waves-effect.waves-perso .waves-ripple {
   background-color: rgba(0, 0, 255, 0.65);
 }
-
 [type="button"]:not(:disabled),
 [type="reset"]:not(:disabled),
 [type="submit"]:not(:disabled),
@@ -107,40 +109,19 @@ button:not(:disabled) {
   color: white;
   border: 0.1vw solid black;
 }
-
 [type="button"]:hover {
   color: black !important;
   background: white !important;
   border: 0.1vw solid black;
 }
-
 .botones {
   margin: 2.5vw 0 0 0;
 }
-
 .btn,
 .btn-large,
 .btn-small,
 .btn-flat {
   line-height: 1vw;
-}
-
-input:not([type]):focus:not([readonly])+label,
-input[type="text"]:not(.browser-default):focus:not([readonly])+label,
-input[type="password"]:not(.browser-default):focus:not([readonly])+label,
-input[type="email"]:not(.browser-default):focus:not([readonly])+label,
-input[type="url"]:not(.browser-default):focus:not([readonly])+label,
-input[type="time"]:not(.browser-default):focus:not([readonly])+label,
-input[type="date"]:not(.browser-default):focus:not([readonly])+label,
-input[type="datetime"]:not(.browser-default):focus:not([readonly])+label,
-input[type="datetime-local"]:not(.browser-default):focus:not([readonly])+label,
-input[type="tel"]:not(.browser-default):focus:not([readonly])+label,
-input[type="number"]:not(.browser-default):focus:not([readonly])+label,
-input[type="search"]:not(.browser-default):focus:not([readonly])+label,
-textarea.materialize-textarea:focus:not([readonly])+label {
-  color: rgb(150, 0, 0);
-  -webkit-text-stroke: 0.05vw rgb(150, 0, 0);
-  font-size: 1vw;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -156,20 +137,107 @@ input[type="tel"]:not(.browser-default):focus:not([readonly]),
 input[type="number"]:not(.browser-default):focus:not([readonly]),
 input[type="search"]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 0.1vw solid rgb(150, 0, 0);
-  box-shadow: 0 0.1vw 0 0 transparent;
+  border-bottom: 0.1vw solid rgb(0, 0, 0);
+  box-shadow: 0vw 0.05vw 0vw 0vw rgba(0, 0, 255, 0.5);
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: rgb(0, 0, 0);
+}
+
+.input-field > label:not(.label-icon).active {
+  transform: translateY(-1vw);
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+}
+
+input.invalid:not([type]),
+input.invalid:not([type]):focus,
+input.invalid[type="text"]:not(.browser-default),
+input.invalid[type="text"]:not(.browser-default):focus,
+input.invalid[type="password"]:not(.browser-default),
+input.invalid[type="password"]:not(.browser-default):focus,
+input.invalid[type="email"]:not(.browser-default),
+input.invalid[type="email"]:not(.browser-default):focus,
+input.invalid[type="url"]:not(.browser-default),
+input.invalid[type="url"]:not(.browser-default):focus,
+input.invalid[type="time"]:not(.browser-default),
+input.invalid[type="time"]:not(.browser-default):focus,
+input.invalid[type="date"]:not(.browser-default),
+input.invalid[type="date"]:not(.browser-default):focus,
+input.invalid[type="datetime"]:not(.browser-default),
+input.invalid[type="datetime"]:not(.browser-default):focus,
+input.invalid[type="datetime-local"]:not(.browser-default),
+input.invalid[type="datetime-local"]:not(.browser-default):focus,
+input.invalid[type="tel"]:not(.browser-default),
+input.invalid[type="tel"]:not(.browser-default):focus,
+input.invalid[type="number"]:not(.browser-default),
+input.invalid[type="number"]:not(.browser-default):focus,
+input.invalid[type="search"]:not(.browser-default),
+input.invalid[type="search"]:not(.browser-default):focus,
+textarea.materialize-textarea.invalid,
+textarea.materialize-textarea.invalid:focus,
+.select-wrapper.invalid > input.select-dropdown,
+.select-wrapper.invalid > input.select-dropdown:focus {
+  border-bottom: 0.1vw solid rgb(220, 0, 0);
+  color: rgb(220, 0, 0);
+  -webkit-box-shadow: 0 0 0 0;
+  box-shadow: 0 0 0 0;
+}
+
+.invalido {
+  border-bottom: 0.1vw solid rgb(150, 0, 0) !important;
+  box-shadow: 0vw 0.05vw 0vw 0vw rgba(255, 0, 0, 0.5) !important;
+}
+
+.iconInvalid {
+  text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.5) !important;
+}
+
+.iconInvalid.active {
+  transition: 0.5s;
+  text-shadow: 0.2vw 0.2vw 0.5vw rgba(255, 0, 0, 0.5) !important;
+}
+
+input:not([type]):focus.invalid ~ label,
+input[type="text"]:not(.browser-default):focus.invalid ~ label,
+input[type="password"]:not(.browser-default):focus.invalid ~ label,
+input[type="email"]:not(.browser-default):focus.invalid ~ label,
+input[type="url"]:not(.browser-default):focus.invalid ~ label,
+input[type="time"]:not(.browser-default):focus.invalid ~ label,
+input[type="date"]:not(.browser-default):focus.invalid ~ label,
+input[type="datetime"]:not(.browser-default):focus.invalid ~ label,
+input[type="datetime-local"]:not(.browser-default):focus.invalid ~ label,
+input[type="tel"]:not(.browser-default):focus.invalid ~ label,
+input[type="number"]:not(.browser-default):focus.invalid ~ label,
+input[type="search"]:not(.browser-default):focus.invalid ~ label,
+textarea.materialize-textarea:focus.invalid ~ label {
+  color: rgb(220, 0, 0);
 }
 
 .input-field .prefix.active {
-  color: rgb(150, 0, 0);
+  color: rgb(0, 0, 0);
+  text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 255, 0.5);
 }
 
-.input-field .prefix~input {
+.input-field .prefix ~ input {
   border-bottom: 0.1vw solid black;
-  text-shadow: 0.3vw 0.3vw 0.5vw rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
 }
 
-div:where(.swal2-container).swal2-center>.swal2-popup {
+div:where(.swal2-container).swal2-center > .swal2-popup {
   transition: 0.5s;
   grid-column: 2;
   grid-row: 2;
@@ -225,4 +293,18 @@ input:-webkit-autofill {
 
 span.helper-text {
   font-size: 0.8vw !important;
+}
+
+i.prefix.fa-solid.fa-exclamation {
+  transition: 0.5s linear;
+  width: 1vw;
+  font-size: 2vw;
+  right: 0vw;
+  display: none;
+  justify-content: center;
+}
+
+label {
+  margin-bottom: 0;
+  height: 2vw !important;
 }
