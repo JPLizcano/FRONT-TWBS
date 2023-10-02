@@ -199,7 +199,7 @@ const aggUsu = () => {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "Datos de la contraseña inválidos",
+      title: "Contraseña inválida",
       text: "La contraseña debe tener al menos una letra mayúscula, al menos una letra minúscula, al menos un número, mínimo 8 carácteres y máximo 25",
     });
   } else if (Pass.length > 25 || Pass.length < 8) {
@@ -335,11 +335,11 @@ const modificarUsu = () => {
             return;
           } else {
             existeEmail = false;
+            return;
           }
         }
       });
     });
-  console.log(existeEmail);
   if (existeEmail) {
     Swal.fire({
       icon: "error",
