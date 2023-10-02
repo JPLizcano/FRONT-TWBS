@@ -14,13 +14,13 @@ const listarUsuarios = async () => {
       let listarUsuarios = data.usuarios;
       datos = listarUsuarios.map(function (usuario) {
         if (usuario._id == "650a2336329c70b03a3cdcda") {
-        respuesta =
-          `<p class="infoTit">Nombre de usuario: <span class="infoCont">${usuario.nombreUsu}</span></p>` +
-          `<p class="infoTit">Nombre: <span class="infoCont">${usuario.nombre}</span></p>` +
-          `<p class="infoTit">Apellidos: <span class="infoCont">${usuario.apellidos}</span</p>` +
-          `<p class="infoTit">Correo: <span class="infoCont">${usuario.correo}</span></p>` +
-          `<p class="infoTit">Número celular: <span class="infoCont">${usuario.celular}</span></p>`;
-        contenido.innerHTML = respuesta;
+          respuesta =
+            `<p class="infoTit">Nombre de usuario: <span class="infoCont">${usuario.nombreUsu}</span></p>` +
+            `<p class="infoTit">Nombre: <span class="infoCont">${usuario.nombre}</span></p>` +
+            `<p class="infoTit">Apellidos: <span class="infoCont">${usuario.apellidos}</span</p>` +
+            `<p class="infoTit">Correo: <span class="infoCont">${usuario.correo}</span></p>` +
+            `<p class="infoTit">Número celular: <span class="infoCont">${usuario.celular}</span></p>`;
+          contenido.innerHTML = respuesta;
         }
       });
     });
@@ -42,14 +42,17 @@ const validarCelu = (cel) => {
 };
 
 const abrirFormAct = (Usu) => {
-  Usu = user
+  Usu = user;
   let formAct = document.getElementById("formulario2");
   let fondo = document.getElementById("fondo2");
   document.getElementById("corL2").classList.add("labelActRol");
   document.getElementById("numCelL2").classList.add("labelActRol");
   document.getElementById("passL2").classList.add("labelActRol");
   document.getElementById("usuL2").classList.add("labelActRol");
-            document.getElementById("Usu2").value = Usu;
+  document.getElementById("Correo2").value = "";
+  document.getElementById("numCel2").value = "";
+  document.getElementById("Pass2").value = "";
+  document.getElementById("Usu2").value = Usu;
 
   if (formAct.style.display === "block") {
     formAct.style.display = "none";

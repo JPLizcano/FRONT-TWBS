@@ -234,11 +234,11 @@ const ingresar = () => {
                 if (usuario.rol == "Admin") {
                   setTimeout(function () {
                     window.location = "/ini";
-                  }, 500);
+                  }, 1500);
                 } else {
                   setTimeout(function () {
                     window.location = "/iniclient";
-                  }, 500);
+                  }, 1500);
                 }
               } else {
                 Swal.fire({
