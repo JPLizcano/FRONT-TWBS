@@ -1,4 +1,4 @@
-const urlUsuarios = "https://api-twbs.onrender.com/api/usuario";
+const urlUsuarios = "http://localhost:8081/api/usuario";
 let user = "JuanP69";
 
 const listarUsuarios = async () => {

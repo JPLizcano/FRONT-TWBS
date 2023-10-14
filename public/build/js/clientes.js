@@ -1,4 +1,4 @@
-const urlClientes = "https://api-twbs.onrender.com/api/cliente";
+const urlClientes = "http://localhost:8081/api/cliente";
 let id = "";
 
 const Buscador = () => {

@@ -1,4 +1,4 @@
-const urlUsuarios = "https://api-twbs.onrender.com/api/usuario";
+const urlUsuarios = "http://localhost:8081/api/usuario";
 
 const validarCelu = (cel) => {
   const celuInp = document.getElementById(cel);

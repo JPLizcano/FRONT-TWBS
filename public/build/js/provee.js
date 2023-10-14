@@ -1,4 +1,4 @@
-const urlProveedores = "https://api-twbs.onrender.com/api/proveedor";
+const urlProveedores = "http://localhost:8081/api/proveedor";
 let id = "";
 
 const listarProveedores = async () => {

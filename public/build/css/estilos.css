@@ -15,7 +15,7 @@
 body {
   transition: 0.5s;
   font-family: "Poppins", sans-serif;
-  font-size: 0.8vw;
+  font-size: 1vw;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -215,9 +215,9 @@ img.logo {
 
 .fa {
   margin: 0.1vw 1vw 0.1vw 0;
-  font-size: 1vw;
+  font-size: 1.2vw;
   width: 1vw;
-  height: 1vw;
+  height: 1.3vw;
 }
 
 .regIndex {
@@ -431,9 +431,11 @@ a#btnAct:hover {
   display: block;
   position: relative;
   margin: 4% 25%;
-  background-color: rgb(80, 0, 0);
+  /* background-color: rgb(80, 0, 0); */
+  /* background-image: linear-gradient(to top, #800000 -1%, #ffffff 20%); */
+  background-image: radial-gradient(circle 35vw, beige, rgb(80, 0, 0));
   padding: 2vw;
-  color: white;
+  color: black;
   border-radius: 1vw;
   border: 0.2vw solid black;
   box-shadow: 0.5vw 0.5vw 1.5vw 0.5vw rgba(0, 0, 0, 0.7);
@@ -513,18 +515,18 @@ button:not(:disabled) {
   height: 2.5vw;
   margin: 2vw 0.5vw 0 0.5vw;
   border-radius: 0.6vw;
-  border: 0.1vw solid black;
-  background-color: white !important;
-  color: black;
+  border: 0.1vw solid white;
+  background-color: black !important;
+  color: white;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
 button.waves-effect.waves-perso.btn.black:hover {
-  color: white;
-  background-color: black !important;
-  border: 0.1vw solid white;
+  border: 0.1vw solid black;
+  background-color: white !important;
+  color: black;
 }
 
 .waves-effect.waves-perso .waves-ripple {
@@ -545,8 +547,8 @@ i.material-icons.prefix {
 
 label {
   margin: 0 0 0 0vw !important;
-  font-size: 0.8vw !important;
-  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 1vw !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .selectRoles {
@@ -581,10 +583,10 @@ input[type="checkbox"] {
 
 #nuevoRol,
 #actRol {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   height: 3vw;
-  color: white;
-  font-size: 0.8vw;
+  color: black;
+  font-size: 1vw;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -624,10 +626,6 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .input-field .prefix.active {
   color: black;
   -webkit-text-stroke: 0.03vw white;
-}
-
-input {
-  text-align: center;
 }
 
 .centrar {

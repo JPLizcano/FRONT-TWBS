@@ -1,6 +1,6 @@
-const urlRoles = "https://api-twbs.onrender.com/api/configuracion";
-const urlEmpleados = "https://api-twbs.onrender.com/api/empleado";
-const urlUsuario = "https://api-twbs.onrender.com/api/usuario";
+const urlRoles = "http://localhost:8081/configuracion";
+const urlEmpleados = "http://localhost:8081/empleado";
+const urlUsuario = "http://localhost:8081/api/usuario";
 let id = "";
 
 const Buscador = () => {

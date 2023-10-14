@@ -1,4 +1,4 @@
-const urlRoles = "https://api-twbs.onrender.com/api/configuracion";
+const urlRoles = "http://localhost:8081/api/configuracion";
 let id = "";
 
 const listarRoles = async () => {
