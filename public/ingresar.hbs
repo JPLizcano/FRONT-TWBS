@@ -40,9 +40,11 @@
     <form class="container formulario">
       <div>
         <a onclick="cancelar()" class="back"><i class="fa-solid fa-circle-arrow-left"></i></a>
-        <i class="fa-solid fa-circle-user"></i>
-        <h3 class="center">Ingreso</h3>
-        <div class="center">
+        <div class="contUser">
+          <i class="fa-solid fa-circle-user"></i>
+          <h3 class="center">Ingreso</h3>
+        </div>
+        <div>
           <div class="input-field ms-3">
             <i class="prefix fa-solid fa-envelope" id="emailIco" name="exclamation"></i>
             <input type="email" id="email" data-length="40" />
@@ -54,13 +56,15 @@
             <input type="password" id="pass" data-length="25" />
             <i class="prefix fa-solid fa-exclamation exclamationSign" id="passExc" name="exclamation"></i>
             <label for="pass">Contraseña</label>
+            <div class="recu center"><a href="/recu">Recuperar contraseña</a></div>
           </div>
         </div>
-        <div id="alerta" class="center"></div><br />
-        <div class="center">
-          <button type="button" class="waves-effect waves-perso btn black" onclick="ingresar()">Ingresar</button>
+        <div class="contReg ingresar">
+          <div class="reg center"><a onclick="ingresar()" class="aReg">Ingresar</a></div>
         </div>
-        <div class="recu center"><a href="/recu">Recuperar contraseña</a></div>
+        <div class="contReg">
+          <div class="reg center"><a href="/reg" class="aReg">Ir a registrarme</a></div>
+        </div>
       </div>
     </form>
     <script src="build/js/registro.js"></script>

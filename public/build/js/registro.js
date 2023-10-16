@@ -654,10 +654,10 @@ $(document).ready(function () {
 });
 
 const cancelar = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("pass").value;
-  email = "";
-  password = "";
+  const email = document.getElementById("email");
+  const password = document.getElementById("pass");
+  email.value = "";
+  password.value = "";
   setTimeout(function () {
     window.location = "/";
   }, 500);
