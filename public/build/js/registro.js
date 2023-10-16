@@ -22,15 +22,27 @@ const registrar = () => {
   const apellidos = document.getElementById("apellidos");
   const celular = document.getElementById("celular");
   const password = document.getElementById("pass");
-  const exclamation = document.querySelectorAll(".exclamationSign");
   const input = document.querySelectorAll("input");
-  const icons = document.querySelectorAll("i");
+  const icons = document.getElementsByName("exclamation");
+  const exclamation = document.querySelectorAll(".exclamationSign");
 
   const valNombreUsu = /^[A-Za-z0-9_.-]{5,20}$/;
   const valEmail = /^[\w\-._]+@[A-Za-z\d.-]{2,}\.[A-Za-z]{2,6}$/;
   const valNombre = /^[A-Za-z\s]{4,25}$/;
   const valApellidos = /^[A-Za-z\s]{3,25}$/;
   const valPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,25}$/; // Contiene al menos una letra mayúscula, Contiene al menos una letra minúscula, Contiene al menos un dígito, Tiene una longitud mínima de 8 caracteres y maxima de 25.
+
+  exclamation.forEach((icon) => {
+    icon.style.display = "none";
+  });
+  icons.forEach((icon) => {
+    icon.style.color = "rgb(0, 0, 0)";
+    icon.classList.remove("iconInvalid");
+  });
+  input.forEach((input) => {
+    input.style.color = "rgb(0, 0, 0)";
+    input.classList.remove("invalido");
+  });
 
   if (nombreUsuario.value === "" && email.value == "" && nombre.value == "" && apellidos.value == "" && celular.value == "" && password.value == "") {
     Swal.fire({
@@ -42,6 +54,7 @@ const registrar = () => {
       icon.style.display = "flex";
     });
     icons.forEach((icon) => {
+      console.log(icon);
       icon.style.color = "rgb(180, 0, 0)";
       icon.classList.add("iconInvalid");
     });
@@ -54,11 +67,43 @@ const registrar = () => {
       confirmButtonText: "Aceptar",
       text: "Ingrese un nombre de usuario...",
     });
+    exclamation.forEach((icon) => {
+      if (icon.id == "nomUsuExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "nomUsuIco" || icon.id == "nomUsuExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "nomUsu") {
+        input.classList.add("invalido");
+      }
+    });
   } else if (email.value == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
       text: "Ingrese su correo...",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "emailExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "emailIco" || icon.id == "emailExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "email") {
+        input.classList.add("invalido");
+      }
     });
   } else if (nombre.value == "") {
     Swal.fire({
@@ -66,11 +111,43 @@ const registrar = () => {
       confirmButtonText: "Aceptar",
       text: "Ingrese su nombre...",
     });
+    exclamation.forEach((icon) => {
+      if (icon.id == "nombreExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "nombreIco" || icon.id == "nombreExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "nombre") {
+        input.classList.add("invalido");
+      }
+    });
   } else if (apellidos.value == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
       text: "Ingrese sus apellidos...",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "apellidosExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "apellidosIco" || icon.id == "apellidosExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "apellidos") {
+        input.classList.add("invalido");
+      }
     });
   } else if (celular.value == "") {
     Swal.fire({
@@ -78,11 +155,43 @@ const registrar = () => {
       confirmButtonText: "Aceptar",
       text: "Ingrese su número de celular...",
     });
+    exclamation.forEach((icon) => {
+      if (icon.id == "celularExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "celularIco" || icon.id == "celularExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "celular") {
+        input.classList.add("invalido");
+      }
+    });
   } else if (password.value == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
       text: "Ingrese una contraseña...",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "passExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "passIco" || icon.id == "passExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "pass") {
+        input.classList.add("invalido");
+      }
     });
   } else if (nombreUsuario.value != nombreUsuario.value.match(valNombreUsu)) {
     Swal.fire({
@@ -91,12 +200,46 @@ const registrar = () => {
       title: "Nombre de usuario inválido",
       text: 'Porfavor use datos válidos, puede usar de 5 a 20 caracteres que sean de la "a" a la "z", mayúsculas, minúsculas y números',
     });
+    exclamation.forEach((icon) => {
+      if (icon.id == "nomUsuExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "nomUsuIco" || icon.id == "nomUsuExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "nomUsu") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
+    });
   } else if (email.value != email.value.match(valEmail)) {
     Swal.fire({
       icon: "error",
       confirmButtonText: "Aceptar",
       title: "Correo inválido",
       text: "Porfavor use un correo electrónico válido, ej: ejemplo@mail.com",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "emailExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "emailIco" || icon.id == "emailExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "email") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
     });
   } else if (nombre.value != nombre.value.match(valNombre)) {
     Swal.fire({
@@ -105,6 +248,23 @@ const registrar = () => {
       title: "Nombre inválido",
       text: 'Porfavor use datos válidos, puede usar de 4 a 25 caracteres que sean de la "a" a la "z", mayúsculas y minúsculas',
     });
+    exclamation.forEach((icon) => {
+      if (icon.id == "nombreExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "nombreIco" || icon.id == "nombreExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "nombre") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
+    });
   } else if (apellidos.value != apellidos.value.match(valApellidos)) {
     Swal.fire({
       icon: "error",
@@ -112,12 +272,69 @@ const registrar = () => {
       title: "Apellidos inválidos",
       text: 'Porfavor use datos válidos, puede usar de 3 a 25 caracteres que sean de la "a" a la "z", mayúsculas y minúsculas',
     });
+    exclamation.forEach((icon) => {
+      if (icon.id == "apellidosExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "apellidosIco" || icon.id == "apellidosExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "apellidos") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
+    });
   } else if (password.value != password.value.match(valPassword)) {
     Swal.fire({
       icon: "error",
       confirmButtonText: "Aceptar",
       title: "Contraseña inválida.",
       text: "La contraseña debe tener al menos una letra mayúscula, al menos una letra minúscula, al menos un número, mínimo 8 carácteres y máximo 25",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "passExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "passIco" || icon.id == "passExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "pass") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
+    });
+  } else if (celular.value.length < 14 || celular.value.length > 15) {
+    Swal.fire({
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+      title: "Datos de número de celular inválidos",
+      text: "Ej: (123) 456-7890",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "celularExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "celularIco" || icon.id == "celularExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "celular") {
+        input.classList.add("invalido");
+      }
     });
   } else {
     const Usuario = {
@@ -153,62 +370,196 @@ const registrar = () => {
             confirmButtonText: "Aceptar",
             text: json.msg,
           });
+          if (json.msg == "El nombre de usuario ya está en uso por otro usuario.") {
+            exclamation.forEach((icon) => {
+              if (icon.id == "nomUsuExc") {
+                icon.style.display = "flex";
+              }
+            });
+            icons.forEach((icon) => {
+              if (icon.id == "nomUsuIco" || icon.id == "nomUsuExc") {
+                icon.style.color = "rgb(180, 0, 0)";
+                icon.classList.add("iconInvalid");
+              }
+            });
+            input.forEach((input) => {
+              if (input.id == "nomUsu") {
+                input.style.color = "rgb(180, 0, 0)";
+                input.classList.add("invalido");
+              }
+            });
+          } else if (json.msg == "El correo ya está en uso por otro usuario.") {
+            exclamation.forEach((icon) => {
+              if (icon.id == "emailExc") {
+                icon.style.display = "flex";
+              }
+            });
+            icons.forEach((icon) => {
+              if (icon.id == "emailIco" || icon.id == "emailExc") {
+                icon.style.color = "rgb(180, 0, 0)";
+                icon.classList.add("iconInvalid");
+              }
+            });
+            input.forEach((input) => {
+              if (input.id == "email") {
+                input.style.color = "rgb(180, 0, 0)";
+                input.classList.add("invalido");
+              }
+            });
+          } else if (json.msg == "El número de celular ya está en uso por otro usuario.") {
+            exclamation.forEach((icon) => {
+              if (icon.id == "celularExc") {
+                icon.style.display = "flex";
+              }
+            });
+            icons.forEach((icon) => {
+              if (icon.id == "celularIco" || icon.id == "celularExc") {
+                icon.style.color = "rgb(180, 0, 0)";
+                icon.classList.add("iconInvalid");
+              }
+            });
+            input.forEach((input) => {
+              if (input.id == "celular") {
+                input.style.color = "rgb(180, 0, 0)";
+                input.classList.add("invalido");
+              }
+            });
+          }
         }
       });
   }
 };
 
 const ingresar = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("pass").value;
-  const exclamation = document.querySelectorAll(".exclamationSign");
+  const email = document.getElementById("email");
+  const password = document.getElementById("pass");
   const input = document.querySelectorAll("input");
-  const icons = document.querySelectorAll("i");
+  const icons = document.getElementsByName("exclamation");
+  const exclamation = document.querySelectorAll(".exclamationSign");
 
   const valEmail = /^[\w\-._]+@[A-Za-z\d.-]{2,}\.[A-Za-z]{2,6}$/;
   const valPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,25}$/; // Contiene al menos una letra mayúscula, Contiene al menos una letra minúscula, Contiene al menos un dígito, Tiene una longitud mínima de 8 caracteres y maxima de 25.
 
-  if (email == "" && password == "") {
+  exclamation.forEach((icon) => {
+    icon.style.display = "none";
+  });
+  icons.forEach((icon) => {
+    icon.style.color = "rgb(0, 0, 0)";
+    icon.classList.remove("iconInvalid");
+  });
+  input.forEach((input) => {
+    input.style.color = "rgb(0, 0, 0)";
+    input.classList.remove("invalido");
+  });
+
+  if (email.value == "" && password.value == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "Debe ingresar sus datos primero...",
+      text: "Debe llenar el formulario primero...",
     });
     exclamation.forEach((icon) => {
       icon.style.display = "flex";
     });
     icons.forEach((icon) => {
+      console.log(icon);
       icon.style.color = "rgb(180, 0, 0)";
       icon.classList.add("iconInvalid");
     });
     input.forEach((input) => {
       input.classList.add("invalido");
     });
-  } else if (email == "") {
+  } else if (email.value == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "Ingrese un correo...",
+      text: "Ingrese su correo...",
     });
-  } else if (password == "") {
+    exclamation.forEach((icon) => {
+      if (icon.id == "emailExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "emailIco" || icon.id == "emailExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "email") {
+        input.classList.add("invalido");
+      }
+    });
+  } else if (password.value == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
       text: "Ingrese una contraseña...",
     });
-  } else if (email != email.match(valEmail)) {
+    exclamation.forEach((icon) => {
+      if (icon.id == "passExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "passIco" || icon.id == "passExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "pass") {
+        input.classList.add("invalido");
+      }
+    });
+  } else if (email.value != email.value.match(valEmail)) {
     Swal.fire({
       icon: "error",
       confirmButtonText: "Aceptar",
       title: "Correo inválido",
       text: "Porfavor use un correo electrónico válido, ej: ejemplo@mail.com",
     });
-  } else if (password != password.match(valPassword)) {
+    exclamation.forEach((icon) => {
+      if (icon.id == "emailExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "emailIco" || icon.id == "emailExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "email") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
+    });
+  } else if (password.value != password.value.match(valPassword)) {
     Swal.fire({
       icon: "error",
       confirmButtonText: "Aceptar",
       title: "Contraseña inválida.",
       text: "La contraseña debe tener al menos una letra mayúscula, al menos una letra minúscula, al menos un número, mínimo 8 carácteres y máximo 25",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "passExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "passIco" || icon.id == "passExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "pass") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
     });
   } else {
     let existe = false;
@@ -222,8 +573,8 @@ const ingresar = () => {
         let listaUsuarios = data.usuarios;
         datos = listaUsuarios.map(function (usuario) {
           for (let i = 0; i < usuario.correo.length; i++) {
-            if (email.toLowerCase() == usuario.correo.toLowerCase()) {
-              if (password == usuario.password) {
+            if (email.value.toLowerCase() == usuario.correo.toLowerCase()) {
+              if (password.value == usuario.password) {
                 Swal.fire({
                   icon: "success",
                   showConfirmButton: false,
@@ -247,6 +598,23 @@ const ingresar = () => {
                   title: "Contraseña incorrecta",
                   text: "Verifique su contraseña.",
                 });
+                exclamation.forEach((icon) => {
+                  if (icon.id == "passExc") {
+                    icon.style.display = "flex";
+                  }
+                });
+                icons.forEach((icon) => {
+                  if (icon.id == "passIco" || icon.id == "passExc") {
+                    icon.style.color = "rgb(180, 0, 0)";
+                    icon.classList.add("iconInvalid");
+                  }
+                });
+                input.forEach((input) => {
+                  if (input.id == "pass") {
+                    input.style.color = "rgb(180, 0, 0)";
+                    input.classList.add("invalido");
+                  }
+                });
               }
               return (existe = true);
             }
@@ -255,7 +623,25 @@ const ingresar = () => {
             Swal.fire({
               icon: "error",
               confirmButtonText: "Aceptar",
-              text: "Ese correo no está registrado",
+              title: "No existe un usuario registrado con ese correo",
+              text: "Verifique su correo: " + email.value + ".",
+            });
+            exclamation.forEach((icon) => {
+              if (icon.id == "emailExc") {
+                icon.style.display = "flex";
+              }
+            });
+            icons.forEach((icon) => {
+              if (icon.id == "emailIco" || icon.id == "emailExc") {
+                icon.style.color = "rgb(180, 0, 0)";
+                icon.classList.add("iconInvalid");
+              }
+            });
+            input.forEach((input) => {
+              if (input.id == "email") {
+                input.style.color = "rgb(180, 0, 0)";
+                input.classList.add("invalido");
+              }
             });
           }
         });
@@ -268,10 +654,10 @@ $(document).ready(function () {
 });
 
 const cancelar = () => {
-  const email = document.getElementById("email");
-  const password = document.getElementById("pass");
-  email.value = "";
-  password.value = "";
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("pass").value;
+  email = "";
+  password = "";
   setTimeout(function () {
     window.location = "/";
   }, 500);

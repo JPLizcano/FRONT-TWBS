@@ -38,53 +38,54 @@
       <img src="./build/images/logo-login-white.png" id="imgLog2" />
     </div>
     <form class="container formulario">
-      <div>
+      <div class="form">
+        <a onclick="cancelar()" class="back"><i class="fa-solid fa-circle-arrow-left"></i></a>
+        <i class="fa-solid fa-circle-user"></i>
         <h3 class="center">Registro</h3>
         <div class="d-flex justify-content-center">
           <div class="input-field me-3">
-            <i class="prefix fa-solid fa-user"></i>
+            <i class="prefix fa-solid fa-user" id="nomUsuIco" name="exclamation"></i>
             <input type="text" id="nomUsu" data-length="15" />
-            <i class="prefix fa-solid fa-exclamation exclamationSign"></i>
+            <i class="prefix fa-solid fa-exclamation exclamationSign" id="nomUsuExc" name="exclamation"></i>
             <label for="nomUsu">Nombre de usuario</label>
           </div>
           <div class="input-field ms-3">
-            <i class="material-icons prefix">email</i>
+            <i class="prefix fa-solid fa-envelope" id="emailIco" name="exclamation"></i>
             <input type="email" id="email" data-length="40" />
-            <i class="prefix fa-solid fa-exclamation exclamationSign" ></i>
+            <i class="prefix fa-solid fa-exclamation exclamationSign" id="emailExc" name="exclamation"></i>
             <label for="email">Correo</label>
           </div>
         </div>
         <div class="d-flex justify-content-center">
           <div class="input-field me-3">
-            <i class="prefix fa-solid fa-id-card"></i>
-            <i class="prefix fa-solid fa-exclamation exclamationSign"></i>
+            <i class="prefix fa-solid fa-id-card" id="nombreIco" name="exclamation"></i>
             <input type="text" id="nombre" data-length="15" />
+            <i class="prefix fa-solid fa-exclamation exclamationSign" id="nombreExc" name="exclamation"></i>
             <label for="nombre">Nombre</label>
           </div>
           <div class="input-field ms-3">
-            <i class="prefix fa-solid fa-id-card"></i>
+            <i class="prefix fa-solid fa-id-card" id="apellidosIco" name="exclamation"></i>
             <input type="text" id="apellidos" data-length="20" />
-            <i class="prefix fa-solid fa-exclamation exclamationSign"></i>
+            <i class="prefix fa-solid fa-exclamation exclamationSign" id="apellidosExc" name="exclamation"></i>
             <label for="apellidos">Apellidos</label>
           </div>
         </div>
         <div class="d-flex justify-content-center">
           <div class="input-field me-3">
-            <i class="prefix fa-solid fa-phone"></i>
+            <i class="prefix fa-solid fa-phone" id="celularIco" name="exclamation"></i>
             <input type="text" id="celular" oninput="validarCelu('celular')" data-length="15" />
-            <i class="prefix fa-solid fa-exclamation exclamationSign"></i>
+            <i class="prefix fa-solid fa-exclamation exclamationSign" id="celularExc" name="exclamation"></i>
             <label for="celular">Celular</label>
           </div>
           <div class="input-field ms-3">
-            <i class="material-icons prefix">lock</i>
+            <i class="material-icons prefix" id="passIco" name="exclamation">lock</i>
             <input type="password" id="pass" data-length="25" />
-            <i class="prefix fa-solid fa-exclamation exclamationSign"></i>
+            <i class="prefix fa-solid fa-exclamation exclamationSign" id="passExc" name="exclamation"></i>
             <label for="pass">Contraseña</label>
           </div>
         </div>
         <div class="center botones">
           <button type="button" class="waves-effect waves-perso btn white" onclick="registrar()">Registrarse</button>
-          <button type="button" class="waves-effect waves-perso btn white" onclick="cancelar()">Cancelar</button>
         </div>
       </div>
     </form>
