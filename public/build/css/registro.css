@@ -324,12 +324,13 @@ label {
 a {
   color: black;
   font-size: 1vw;
+  text-decoration: underline;
 }
 
 a:hover {
   cursor: pointer;
   color: black;
-  text-decoration: none;
+  -webkit-text-stroke: 0.03vw black;
 }
 
 .recu {
@@ -338,7 +339,7 @@ a:hover {
 }
 
 .ingresar {
-  margin: 1vw 0vw 2vw;
+  margin: 1vw 0vw 1vw;
 }
 
 .contReg {
@@ -347,13 +348,18 @@ a:hover {
   justify-content: center;
 }
 
-.aReg {
+.aReg,
+.aIng {
   display: grid;
   justify-content: center;
   align-content: center;
 }
 
-.reg,
+.aIng, .aIng:hover {
+  text-decoration: none;
+  -webkit-text-stroke: 0vw;
+}
+
 .ing {
   width: 40%;
   position: relative;
@@ -369,7 +375,6 @@ a:hover {
   cursor: pointer;
 }
 
-.reg::after,
 .ing::after {
   content: "";
   position: absolute;
@@ -382,7 +387,6 @@ a:hover {
   transform-origin: center;
 }
 
-.reg::before,
 .ing::before {
   content: "";
   transform-origin: center;
@@ -395,15 +399,12 @@ a:hover {
   transition: 0.5s;
 }
 
-.reg:hover::before,
-.reg:hover::after,
 .ing:hover::before,
 .ing:hover::after {
   transform: scaleX(0);
   transition: 0.3s;
 }
 
-.reg:hover,
 .ing:hover {
   box-shadow: inset 0px 0px 25px rgb(100, 0, 0);
 }
