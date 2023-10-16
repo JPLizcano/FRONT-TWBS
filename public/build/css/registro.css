@@ -353,7 +353,8 @@ a:hover {
   align-content: center;
 }
 
-.reg {
+.reg,
+.ing {
   width: 40%;
   position: relative;
   height: 3vw;
@@ -368,35 +369,42 @@ a:hover {
   cursor: pointer;
 }
 
-.reg::after {
+.reg::after,
+.ing::after {
   content: "";
   position: absolute;
-  top: -10px;
-  left: 3%;
+  top: -3px;
+  left: 2.5%;
   width: 95%;
-  height: 25%;
+  height: 7%;
   background-color: white;
   transition: 0.5s;
   transform-origin: center;
 }
 
-.reg::before {
+.reg::before,
+.ing::before {
   content: "";
   transform-origin: center;
   position: absolute;
-  top: 85%;
-  left: 3%;
+  top: 97%;
+  left: 2.5%;
   width: 95%;
-  height: 25%;
+  height: 7%;
   background-color: white;
   transition: 0.5s;
 }
 
-.reg:hover::before, .reg:hover::after {
-  transform: scale(0)
+.reg:hover::before,
+.reg:hover::after,
+.ing:hover::before,
+.ing:hover::after {
+  transform: scaleX(0);
+  transition: 0.3s;
 }
 
-.reg:hover {
+.reg:hover,
+.ing:hover {
   box-shadow: inset 0px 0px 25px rgb(100, 0, 0);
 }
 
@@ -416,8 +424,8 @@ a:hover {
   font-weight: 1000;
   overflow: hidden;
 }
- 
- .back::before {
+
+.back::before {
   content: "";
   transition: 0.3s;
   position: absolute;
@@ -428,16 +436,16 @@ a:hover {
   border-radius: 0.5vw;
   background-color: black;
   z-index: -1;
- }
- 
- .back:hover {
+}
+
+.back:hover {
   color: white;
   -webkit-text-stroke: 0.05vw black;
- }
- 
- .back:hover::before {
+}
+
+.back:hover::before {
   width: 100%;
- }
+}
 
 .conUser {
   display: grid;
