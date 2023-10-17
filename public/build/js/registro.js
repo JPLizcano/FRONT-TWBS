@@ -54,7 +54,6 @@ const registrar = () => {
       icon.style.display = "flex";
     });
     icons.forEach((icon) => {
-      console.log(icon);
       icon.style.color = "rgb(180, 0, 0)";
       icon.classList.add("iconInvalid");
     });
@@ -462,7 +461,6 @@ const ingresar = () => {
       icon.style.display = "flex";
     });
     icons.forEach((icon) => {
-      console.log(icon);
       icon.style.color = "rgb(180, 0, 0)";
       icon.classList.add("iconInvalid");
     });
@@ -584,11 +582,11 @@ const ingresar = () => {
                 });
                 if (usuario.rol == "Admin") {
                   setTimeout(function () {
-                    window.location = "/ini";
+                    window.location = "/confi";
                   }, 1500);
                 } else {
                   setTimeout(function () {
-                    window.location = "/iniclient";
+                    window.location = "/usuclient";
                   }, 1500);
                 }
               } else {
@@ -616,6 +614,141 @@ const ingresar = () => {
                   }
                 });
               }
+              existe = true;
+              return;
+            }
+          }
+          if (!existe) {
+            console.log("no existe");
+            Swal.fire({
+              icon: "error",
+              confirmButtonText: "Aceptar",
+              title: "No existe un usuario registrado con ese correo",
+              text: "Verifique su correo: " + email.value + ".",
+            });
+            exclamation.forEach((icon) => {
+              if (icon.id == "emailExc") {
+                icon.style.display = "flex";
+              }
+            });
+            icons.forEach((icon) => {
+              if (icon.id == "emailIco" || icon.id == "emailExc") {
+                icon.style.color = "rgb(180, 0, 0)";
+                icon.classList.add("iconInvalid");
+              }
+            });
+            input.forEach((input) => {
+              if (input.id == "email") {
+                input.style.color = "rgb(180, 0, 1000)";
+                input.classList.add("invalido");
+              }
+            });
+          }
+        });
+      });
+  }
+};
+
+$(document).ready(function () {
+  $("input#nomUsu, input#email, input#nombre, input#apellidos, input#celular, input#pass").characterCounter();
+});
+
+const recuperar = () => {
+  const email = document.getElementById("email");
+  const input = document.querySelectorAll("input");
+  const icons = document.getElementsByName("exclamation");
+  const exclamation = document.querySelectorAll(".exclamationSign");
+
+  const valEmail = /^[\w\-._]+@[A-Za-z\d.-]{2,}\.[A-Za-z]{2,6}$/;
+
+  exclamation.forEach((icon) => {
+    icon.style.display = "none";
+  });
+  icons.forEach((icon) => {
+    icon.style.color = "rgb(0, 0, 0)";
+    icon.classList.remove("iconInvalid");
+  });
+  input.forEach((input) => {
+    input.style.color = "rgb(0, 0, 0)";
+    input.classList.remove("invalido");
+  });
+
+  if (email.value == "") {
+    Swal.fire({
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+      text: "Ingrese un correo primero!",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "emailExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "emailIco" || icon.id == "emailExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "email") {
+        input.classList.add("invalido");
+      }
+    });
+  } else if (email.value != email.value.match(valEmail)) {
+    Swal.fire({
+      icon: "error",
+      confirmButtonText: "Aceptar",
+      title: "Correo inválido",
+      text: "Porfavor use un correo electrónico válido, ej: ejemplo@mail.com",
+    });
+    exclamation.forEach((icon) => {
+      if (icon.id == "emailExc") {
+        icon.style.display = "flex";
+      }
+    });
+    icons.forEach((icon) => {
+      if (icon.id == "emailIco" || icon.id == "emailExc") {
+        icon.style.color = "rgb(180, 0, 0)";
+        icon.classList.add("iconInvalid");
+      }
+    });
+    input.forEach((input) => {
+      if (input.id == "email") {
+        input.style.color = "rgb(180, 0, 0)";
+        input.classList.add("invalido");
+      }
+    });
+  } else {
+    let existe = false;
+    fetch(urlUsuarios, {
+      method: "GET",
+      mode: "cors",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((resp) => resp.json())
+      .then(function (data) {
+        let listaUsuarios = data.usuarios;
+        datos = listaUsuarios.map(function (usuario) {
+          for (let i = 0; i < usuario.correo.length; i++) {
+            if (email.value.toLowerCase() == usuario.correo.toLowerCase()) {
+              exclamation.forEach((icon) => {
+                if (icon.id == "passExc") {
+                  icon.style.display = "flex";
+                }
+              });
+              icons.forEach((icon) => {
+                if (icon.id == "passIco" || icon.id == "passExc") {
+                  icon.style.color = "rgb(180, 0, 0)";
+                  icon.classList.add("iconInvalid");
+                }
+              });
+              input.forEach((input) => {
+                if (input.id == "pass") {
+                  input.style.color = "rgb(180, 0, 0)";
+                  input.classList.add("invalido");
+                }
+              });
               return (existe = true);
             }
           }
@@ -643,15 +776,22 @@ const ingresar = () => {
                 input.classList.add("invalido");
               }
             });
+          } else {
+            Swal.fire({
+              icon: "success",
+              showConfirmButton: false,
+              title: "Recuperación exitosa",
+              text: "Verifique su correo electrónico para continuar...",
+              timer: 2000,
+            });
+            setTimeout(function () {
+              window.location = "/";
+            }, 2500);
           }
         });
       });
   }
 };
-
-$(document).ready(function () {
-  $("input#nomUsu, input#email, input#nombre, input#apellidos, input#celular, input#pass").characterCounter();
-});
 
 const cancelar = () => {
   const email = document.getElementById("email");

@@ -3,7 +3,7 @@ let user = "JuanP69";
 
 const listarUsuarios = async () => {
   let respuesta = "";
-  let contenido = document.getElementById("infoClient");
+  let contenido = document.getElementById("infoUsu");
   fetch(urlUsuarios, {
     method: "GET",
     mode: "cors",
@@ -13,13 +13,15 @@ const listarUsuarios = async () => {
     .then(function (data) {
       let listarUsuarios = data.usuarios;
       datos = listarUsuarios.map(function (usuario) {
-        if (usuario._id == "650a2336329c70b03a3cdcda") {
-          respuesta =
-            `<p class="infoTit">Nombre de usuario: <span class="infoCont">${usuario.nombreUsu}</span></p>` +
-            `<p class="infoTit">Nombre: <span class="infoCont">${usuario.nombre}</span></p>` +
-            `<p class="infoTit">Apellidos: <span class="infoCont">${usuario.apellidos}</span</p>` +
-            `<p class="infoTit">Correo: <span class="infoCont">${usuario.correo}</span></p>` +
-            `<p class="infoTit">Número celular: <span class="infoCont">${usuario.celular}</span></p>`;
+        console.log(usuario.nombreUsu)
+        if (usuario.nombreUsu == user) {
+          respuesta = `<tr>
+          <td>${usuario.nombreUsu}</td>
+          <td>${usuario.nombre}</td>
+          <td>${usuario.apellidos}</td>
+          <td>${usuario.correo}</td>
+          <td>${usuario.celular}</td>
+          </tr>`;
           contenido.innerHTML = respuesta;
         }
       });

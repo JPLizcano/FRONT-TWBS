@@ -170,18 +170,18 @@
                   <div class="input-field inpForm">
                   <select id="selServ" class="">
                     <option value="0" selected disabled>Seleccione el servicio</option>
-                    <option value="0">Corte de cabello</option>
-                    <option value="0">Corte de barba</option>
-                    <option value="0">Diseño de cejas</option>
+                    <option value="1">Corte de cabello</option>
+                    <option value="2">Corte de barba</option>
+                    <option value="3">Diseño de cejas</option>
                   </select>
                   </div>
-                  <i class="fa-solid fa-dollar-sign iconForm"></i>
+                  <i class="fa-solid fa-clipboard-list iconForm"></i>
                   <div class="input-field inpForm">
                   <select id="selBarb" class="">
                     <option value="0" selected disabled>Seleccione un barbero</option>
-                    <option value="0">Barbero 1</option>
-                    <option value="0">Barbero 2</option>
-                    <option value="0">Barbero 3</option>
+                    <option value="1">Barbero 1</option>
+                    <option value="2">Barbero 2</option>
+                    <option value="3">Barbero 3</option>
                   </select>
                   </div>
                 </div>
@@ -189,7 +189,7 @@
                   <i class="fa-solid fa-file-pen iconForm"></i>
                   <div class="input-field inpForm">
                     <input type="text" id="Desc" class="form1" data-length="150" placeholder="Sin descripción" />
-                    <label for="Desc">Añade una descripción (opcional)</label>
+                    <label for="Desc">Descripción (opcional)</label>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">
@@ -197,7 +197,7 @@
                 </div>
 
                 <div class="center">
-                  <button id="Agendar" type="button" class="waves-effect waves-perso btn black">Agendar</button>
+                  <button id="Agendar" type="button" class="waves-effect waves-perso btn black" onclick="agendar()">Agendar</button>
                   <button id="canAgend" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
                 </div>
               </div>
@@ -245,7 +245,7 @@
                   <i class="fa-solid fa-file-pen iconForm"></i>
                   <div class="input-field inpForm">
                     <input type="text" id="Desc2" class="form1" data-length="150" placeholder="Sin descripción" />
-                    <label for="Desc2" id="descL2">Añade una descripción (opcional)</label>
+                    <label for="Desc2" id="descL2">Descripción (opcional)</label>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">

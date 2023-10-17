@@ -51,7 +51,7 @@
           </div>
           <div class="input-field ms-3">
             <i class="prefix fa-solid fa-envelope" id="emailIco" name="exclamation"></i>
-            <input type="email" id="email" data-length="40" />
+            <input type="email" id="email" data-length="40" placeholder="ejemplo@gmail.com" />
             <i class="prefix fa-solid fa-exclamation exclamationSign" id="emailExc" name="exclamation"></i>
             <label for="email">Correo</label>
           </div>
@@ -73,19 +73,19 @@
         <div class="d-flex justify-content-center">
           <div class="input-field me-3">
             <i class="prefix fa-solid fa-phone" id="celularIco" name="exclamation"></i>
-            <input type="text" id="celular" oninput="validarCelu('celular')" data-length="15" />
+            <input type="text" id="celular" oninput="validarCelu('celular')" data-length="15" placeholder="(123) 456-7890" />
             <i class="prefix fa-solid fa-exclamation exclamationSign" id="celularExc" name="exclamation"></i>
             <label for="celular">Celular</label>
           </div>
           <div class="input-field ms-3">
-            <i class="material-icons prefix" id="passIco" name="exclamation">lock</i>
-            <input type="password" id="pass" data-length="25" />
+            <i class="prefix fa-solid fa-lock" id="passIco" name="exclamation"></i>
+            <input type="password" id="pass" data-length="25" placeholder="●●●●●●●●" />
             <i class="prefix fa-solid fa-exclamation exclamationSign" id="passExc" name="exclamation"></i>
             <label for="pass">Contraseña</label>
           </div>
         </div>
         <div class="contReg ingresar">
-          <div class="ing center"><a onclick="registrar()" class="aReg">Registrarme</a></div>
+          <div class="ing center" onclick="registrar()"><a class="aReg">Registrarme</a></div>
         </div>
       </div>
     </form>

@@ -60,9 +60,9 @@ th {
 .form1,
 .form2 {
   font-size: 1vw !important;
-  color: white;
+  color: black;
   width: 100% !important;
-  border-bottom: 0.1vw solid #9e9e9e;
+  border-bottom: 0.1vw solid black !important;
 }
 
 i.iconForm {
@@ -84,14 +84,18 @@ i.iconForm {
   margin-right: 2vw;
 }
 
+input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .select-wrapper input.select-dropdown {
-  border-bottom: 0.1vw solid #9e9e9e;
+  border-bottom: 0.1vw solid black;
   height: 3vw;
   width: 15vw;
   line-height: 1vw;
   font-size: 1vw;
   margin: 0 0 0 0;
-  color: white;
+  color: black;
 }
 
 .select-wrapper input.select-dropdown:focus {
