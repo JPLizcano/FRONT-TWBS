@@ -1,5 +1,5 @@
 const urlRoles = "http://localhost:8081/configuracion";
-const urlEmpleados = "http://localhost:8081/empleado";
+const urlEmpleados = "http://localhost:8081/api/empleado";
 const urlUsuario = "http://localhost:8081/api/usuario";
 let id = "";
 
@@ -284,6 +284,7 @@ const modificarEmpl = () => {
   const Email = document.getElementById("Correo2").value.charAt(0).toUpperCase() + document.getElementById("Correo2").value.slice(1).toLowerCase();
   const Pass = document.getElementById("Pass2").value;
   const Cel = document.getElementById("numCel2").value;
+  const porGana = document.getElementById("porceGana2").value;
   const valEmail = /^[\w\-._]+@[A-Za-z\d.-]{2,}\.[A-Za-z]{2,6}$/;
   const valPass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,25}$/; // Contiene al menos una letra mayúscula, Contiene al menos una letra minúscula, Contiene al menos un dígito, Tiene una longitud mínima de 8 caracteres y maxima de 25.
 
@@ -336,6 +337,7 @@ const modificarEmpl = () => {
       correo: Email,
       password: Pass,
       celular: Cel,
+      porcentajeGanancias: porGana,
     };
 
     fetch(urlEmpleados, {
@@ -354,6 +356,7 @@ const modificarEmpl = () => {
             timer: 1500,
           });
           listarEmpleados();
+          abrirFormAct();
         } else {
           Swal.fire({
             icon: "warning",

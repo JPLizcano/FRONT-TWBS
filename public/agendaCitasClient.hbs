@@ -47,11 +47,9 @@
           <thead>
             <tr>
               <th>Horario</th>
-              <th>Braulio</th>
-              <th>Juan</th>
-              <th>Luis</th>
-              <th>Alvaro</th>
-              <th>Mauricio</th>
+              <th>Barbero 1</th>
+              <th>Barbero 2</th>
+              <th>Barbero 3</th>
             </tr>
           </thead>
           <tbody id="tablaRoles">
@@ -60,27 +58,19 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <td rowspan="2" class="horarios">8:30 am</td>
-              <td rowspan="2" class="evento"> Barbero 1</td>
-              <td></td>
-              <td></td>
+              <td rowspan="2" class="evento"> Cliente 1</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
               <td></td>
               <td class="evento"></td>
             </tr>
@@ -89,12 +79,8 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -104,12 +90,8 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -119,12 +101,8 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -134,12 +112,8 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -168,16 +142,20 @@
                 <div class="d-flex justify-content-center contForm">
                   <i class="fa-solid fa-clipboard-list iconForm"></i>
                   <div class="input-field inpForm">
-                  <select id="selServ" class="">
+                  <select id="selServ" onchange="valServ()" class="tipoServ">
                     <option value="0" selected disabled>Seleccione el servicio</option>
                     <option value="1">Corte de cabello</option>
                     <option value="2">Corte de barba</option>
                     <option value="3">Diseño de cejas</option>
+                    <option value="4">Corte de cabello y barba</option>
+                    <option value="5">Corte de cabello y diseño de cejas</option>
+                    <option value="6">Corte de barba y diseño de cejas</option>
+                    <option value="7">Corte de cabello, barba y cejas</option>
                   </select>
                   </div>
                   <i class="fa-solid fa-clipboard-list iconForm"></i>
                   <div class="input-field inpForm">
-                  <select id="selBarb" class="">
+                  <select id="selBarb">
                     <option value="0" selected disabled>Seleccione un barbero</option>
                     <option value="1">Barbero 1</option>
                     <option value="2">Barbero 2</option>
@@ -193,7 +171,7 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">
-                  <p class="valTotInsu"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
+                  <p id="valTotAge"></p>
                 </div>
 
                 <div class="center">
@@ -217,27 +195,31 @@
                   </div>
                   <i class="fa-solid fa-clock iconForm"></i>
                   <div class="input-field inpForm">
-                    <input type="time" id="Hora2" class="form1" data-length="20" />
+                    <input type="time" id="Hora2" class="form1" data-length="20" value="18:30" />
                     <label for="Hora2">Hora</label>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">
                   <i class="fa-solid fa-clipboard-list iconForm"></i>
                   <div class="input-field inpForm">
-                  <select id="selServ2" class="">
-                    <option value="0" selected disabled>Seleccione el servicio</option>
-                    <option value="0">Corte de cabello</option>
-                    <option value="0">Corte de barba</option>
-                    <option value="0">Diseño de cejas</option>
+                  <select id="selServ2" onchange="valServ2()" class="tipoServ">
+                    <option value="0" disabled>Seleccione el servicio</option>
+                    <option value="1" selected>Corte de cabello</option>
+                    <option value="2">Corte de barba</option>
+                    <option value="3">Diseño de cejas</option>
+                    <option value="4">Corte de cabello y barba</option>
+                    <option value="5">Corte de cabello y diseño de cejas</option>
+                    <option value="6">Corte de barba y diseño de cejas</option>
+                    <option value="7">Corte de cabello, barba y cejas</option>
                   </select>
                   </div>
                   <i class="fa-solid fa-dollar-sign iconForm"></i>
                   <div class="input-field inpForm2">
                   <select id="selBarb2" class="">
-                    <option value="0" selected disabled>Seleccione un barbero</option>
-                    <option value="0">Barbero 1</option>
-                    <option value="0">Barbero 2</option>
-                    <option value="0">Barbero 3</option>
+                    <option value="0" disabled>Seleccione un barbero</option>
+                    <option value="1" selected>Barbero 1</option>
+                    <option value="2">Barbero 2</option>
+                    <option value="3">Barbero 3</option>
                   </select>
                   </div>
                 </div>
@@ -249,11 +231,11 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">
-                  <p class="valTotInsu"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
+                  <p id="valTotAge2"></p>
                 </div>
 
                 <div class="center">
-                  <button id="actAgend" type="button" class="waves-effect waves-perso btn black">Actualizar</button>
+                  <button id="actAgend" type="button" class="waves-effect waves-perso btn black" onclick="actualizar()">Actualizar</button>
                   <button id="canAgend2" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
                 </div>
               </div>

@@ -71,7 +71,7 @@
               <div class="container">
                 <h3 class="center">Agregar insumos</h3>
                 <div class="d-flex justify-content-center">
-                  <select id="selRol" class="">
+                  <select id="selProv" class="">
                     <option value="0" selected disabled>Seleccione un proveedor</option>
                     <option value="1">Tienda del barbero 1</option>
                     <option value="2">Tienda del barbero 2</option>
@@ -80,7 +80,7 @@
                 <div class="d-flex justify-content-center contForm">
                   <i class="fa-solid fa-hashtag iconForm"></i>
                   <div class="input-field inpForm">
-                    <input type="number" id="Cant" class="form1" data-length="4" />
+                    <input type="number" id="Cant" class="form1" data-length="4" oninput="valTot()" />
                     <label for="Cant">Cantidad</label>
                   </div>
                   <i class="fa-solid fa-box iconForm"></i>
@@ -97,7 +97,7 @@
                   </div>
                   <i class="fa-solid fa-dollar-sign iconForm"></i>
                   <div class="input-field inpForm">
-                    <input type="number" id="preUnit" class="form1" data-length="8" />
+                    <input type="number" id="preUnit" class="form1" data-length="8" oninput="valTot()" />
                     <label for="preUnit">Precio unitario</label>
                   </div>
                 </div>
@@ -114,12 +114,8 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">
-                  <a class="btnsConfi" id="btnAgg"><i class="fa fa-plus iconForm"></i></a>
+                  <p id="valTotInsu"></p>
                 </div>
-                <div class="d-flex justify-content-center contForm">
-                  <p class="valTotInsu"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
-                </div>
-
                 <div class="center">
                   <button id="aggInsu" type="button" class="waves-effect waves-perso btn black">Agregar</button>
                   <button id="canInsu" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
@@ -134,16 +130,16 @@
               <div class="container">
                 <h3 class="center">Actualizar información de insumos</h3>
                 <div class="d-flex justify-content-center">
-                  <select id="selRol2" class="">
+                  <select id="selProv2" class="">
                     <option value="0" selected disabled>Seleccione un proveedor</option>
-                    <option value="0">Tienda del barbero 1</option>
-                    <option value="0">Tienda del barbero 2</option>
+                    <option value="1">Tienda del barbero 1</option>
+                    <option value="2">Tienda del barbero 2</option>
                   </select>
                 </div>
                 <div class="d-flex justify-content-center contForm">
                   <i class="fa-solid fa-hashtag iconForm"></i>
                   <div class="input-field inpForm">
-                    <input type="number" id="Cant2" class="form1" data-length="4" />
+                    <input type="number" id="Cant2" class="form1" data-length="4" oninput="valTot2()" />
                     <label for="Cant2" id="cantL2">Cantidad</label>
                   </div>
                   <i class="fa-solid fa-box iconForm"></i>
@@ -160,7 +156,7 @@
                   </div>
                   <i class="fa-solid fa-dollar-sign iconForm"></i>
                   <div class="input-field inpForm">
-                    <input type="number" id="preUnit2" class="form1" data-length="8" />
+                    <input type="number" id="preUnit2" class="form1" data-length="8" oninput="valTot2()" />
                     <label for="preUnit2" id="preUnitL2">Precio unitario</label>
                   </div>
                 </div>
@@ -177,108 +173,12 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-center contForm">
-                  <p class="valTotInsu"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
+                  <p id="valTotInsu2"><i class="fa fa-sack-dollar iconForm"></i>Valor total</p>
                 </div>
 
                 <div class="center">
                   <button id="actInsu" type="button" class="waves-effect waves-perso btn black">Actualizar</button>
                   <button id="canInsu2" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <div>
-        <h1 class="d-flex justify-content-center tit2">Lista De Insumos</h1>
-      </div>
-        <div class="acciones2">
-          <a class="btnsConfi" id="btnAgg2"><i class="fa fa-plus"></i></a>
-        </div>
-        <div class="contTable2">
-        <table class="table table-striped table-hover table2">
-          <thead>
-            <tr>
-              <th>Tipo de movimiento</th>
-              <th>Fecha de movimiento</th>
-              <th>Hora de movimiento</th>
-              <th id="actInfo">Modificar</th>
-            </tr>
-          </thead>
-          <tbody id="tablaInsu">
-            <tr>
-              <td>Entrada</td>
-              <td>24/09/2023</td>
-              <td>12:00 pm</td>
-              <td><a class="btnsConfi" id="btnMod2"><i class="fa fa-pen"></i></a></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <div id="fondo3">
-          <div class="scrollForm3" id="scrollForm3">
-            <div id="formulario3">
-              <div class="container">
-                <h3 class="center">Registrar historia de movimiento</h3>
-                <div class="d-flex justify-content-center contForm">
-                  <i class="fa-solid fa-file-invoice-dollar iconForm"></i>
-                  <div class="input-field inpForm">
-                    <input type="text" id="nomInsu3" class="form1" data-length="20" />
-                    <label for="nomInsu3" id="nomInsuL3">Tipo de movimiento</label>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-center contForm">
-                  <i class="fa-solid fa-calendar-day iconForm"></i>
-                  <div class="input-field inpForm">
-                    <input type="date" id="preUnit3" class="form1"/>
-                    <label for="preUnit3" id="preUnitL3">Fecha de movimiento</label>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-center contForm">
-                  <i class="fa-solid fa-clock iconForm"></i>
-                  <div class="input-field inpForm">
-                    <input type="time" id="stockMax3" class="form1"/>
-                    <label for="stockMax3" id="stockMaxL3">Hora de movimiento</label>
-                  </div>
-                </div>
-
-                <div class="center">
-                  <button id="actInsu3" type="button" class="waves-effect waves-perso btn black">Registrar</button>
-                  <button id="canInsu3" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="fondo4">
-          <div class="scrollForm4" id="scrollForm4">
-            <div id="formulario4">
-              <div class="container">
-                <h3 class="center">Actualizar historia de movimiento</h3>
-                <div class="d-flex justify-content-center contForm">
-                  <i class="fa-solid fa-file-invoice-dollar iconForm"></i>
-                  <div class="input-field inpForm">
-                    <input type="text" id="nomInsu4" class="form1" data-length="20" />
-                    <label for="nomInsu4" id="nomInsuL4">Tipo de movimiento</label>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-center contForm">
-                  <i class="fa-solid fa-calendar-day iconForm"></i>
-                  <div class="input-field inpForm">
-                    <input type="date" id="preUnit4" class="form1"/>
-                    <label for="preUnit4" id="preUnitL4">Fecha de movimiento</label>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-center contForm">
-                  <i class="fa-solid fa-clock iconForm"></i>
-                  <div class="input-field inpForm">
-                    <input type="time" id="stockMax4" class="form1"/>
-                    <label for="stockMax4" id="stockMaxL4">Hora de movimiento</label>
-                  </div>
-                </div>
-
-                <div class="center">
-                  <button id="actInsu4" type="button" class="waves-effect waves-perso btn black">Actualizar</button>
-                  <button id="canInsu4" type="button" class="waves-effect waves-perso btn black">Cancelar</button>
                 </div>
               </div>
             </div>

@@ -1,33 +1,3 @@
-const urlRoles = "http://localhost:8081/api/configuracion";
-const urlUsuarios = "http://localhost:8081/api/usuario";
-let id = "Servicios";
-
-const listarUsuarios = async () => {
-  let respuesta = "";
-  let contenido = document.getElementById("tablaRoles");
-  fetch(urlUsuarios, {
-    method: "GET",
-    mode: "cors",
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  })
-    .then((resp) => resp.json())
-    .then(function (data) {
-      let listarUsuarios = data.usuarios;
-      datos = listarUsuarios.map(function (usuario) {
-        respuesta +=
-          `<tr><td>${usuario.nombreUsu}</td>` +
-          `<td>${usuario.nombre}</td>` +
-          `<td>${usuario.apellidos}</td>` +
-          `<td>${usuario.correo}</td>` +
-          `<td>${usuario.celular}</td>` +
-          `<td>${usuario.rol}</td>` +
-          `<td><a class="btnsConfi" id="btnMod" value="${usuario.nombreUsu}" onclick="abrirFormAct('${usuario.nombreUsu}')"><i class="fa fa-user-pen"></i></a></td>` +
-          `</tr>`;
-        contenido.innerHTML = respuesta;
-      });
-    });
-};
-
 const abrirFormReg = () => {
   let formAgg = document.getElementById("formulario");
   let fond = document.getElementById("fondo");
@@ -43,338 +13,126 @@ const abrirFormReg = () => {
   document.getElementById("Fecha").value = "";
   document.getElementById("Hora").value = "";
   document.getElementById("Valor").value = "";
-
-  let contenido = document.getElementById("selRol");
-  let respuesta = `<option value="0" selected disabled>Seleccione un rol</option>`;
-  fetch(urlRoles, {
-    method: "GET",
-    mode: "cors",
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  })
-    .then((resp) => resp.json())
-    .then(function (data) {
-      let listaRoles = data.configuraciones;
-      datos = listaRoles.map(function (configuracion) {
-        respuesta += `<option value="${configuracion.rol}">${configuracion.rol}</option>`;
-      });
-      contenido.innerHTML = respuesta;
-      M.FormSelect.init(contenido);
-    });
 };
 document.getElementById("btnAgg").addEventListener("click", abrirFormReg);
-document.getElementById("canUsu").addEventListener("click", abrirFormReg);
+document.getElementById("cancelar").addEventListener("click", abrirFormReg);
 
-const validarCelu = (cel) => {
-  const celuInp = document.getElementById(cel);
-  let valor = celuInp.value;
-  valor = valor.replace(/[^\d]/g, "");
-
-  if (valor.length >= 1 && valor.length <= 3) {
-    valor = `(${valor}`;
-  } else if (valor.length >= 4 && valor.length <= 6) {
-    valor = `(${valor.slice(0, 3)}) ${valor.slice(3)}`;
-  } else if (valor.length >= 7) {
-    valor = `(${valor.slice(0, 3)}) ${valor.slice(3, 6)}-${valor.slice(6, 10)}`;
-  }
-  celuInp.value = valor;
-};
-
-const aggUsu = () => {
-  const Usu = document.getElementById("Usu").value;
-  const Email = document.getElementById("Correo").value.charAt(0).toUpperCase() + document.getElementById("Correo").value.slice(1).toLowerCase();
-  const Name = document.getElementById("Nombre").value.charAt(0).toUpperCase() + document.getElementById("Nombre").value.slice(1).toLowerCase();
-  const Last = document.getElementById("Apellidos").value.charAt(0).toUpperCase() + document.getElementById("Apellidos").value.slice(1).toLowerCase();
-  const Cel = document.getElementById("numCel").value;
-  const Pass = document.getElementById("Pass").value;
-  const Sel = document.getElementById("selRol").value;
-  const valUsu = /^[A-Za-z0-9_.-]{5,20}$/;
-  const valEmail = /^[\w\-._]+@[A-Za-z\d.-]{2,}\.[A-Za-z]{2,6}$/;
-  const valName = /^[A-Za-z\s]{4,25}$/;
-  const valLast = /^[A-Za-z\s]{3,25}$/;
-  const valPass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,25}$/; // Contiene al menos una letra mayúscula, Contiene al menos una letra minúscula, Contiene al menos un dígito, Tiene una longitud mínima de 8 caracteres y maxima de 25.
-
-  if (Usu == "" && Email == "" && Name == "" && Last == "" && Cel == "" && Pass == "" && Sel == "0") {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Llene el formulario primero!",
-    });
-  } else if (Usu == "" || Usu != Usu.match(valUsu)) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Usuario inválido, revise los carácteres válidos: mayúsculas, minúsculas, números, '-', '_' y '.'",
-    });
-  } else if (Usu.length > 20 || Usu.length < 5) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para el nombre de usuario es de 20 y el mínimo es de 5!",
-    });
-  } else if (Email == "" || Email != Email.match(valEmail)) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Correo inválido, ejemplo de correo válido: ejemplo@gmail.com",
-    });
-  } else if (Email.length > 40 || Email.length < 12) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para el correo es de 40 y el mínimo es de 12!",
-    });
-  } else if (Name == "" || Name != Name.match(valName)) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Datos de nombre inválidos, los carácteres válidos son mayúsculas y minúsculas",
-    });
-  } else if (Name.length > 25 || Name.length < 4) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para el nombre es de 25 y el mínimo es de 4!",
-    });
-  } else if (Last == "" || Last != Last.match(valLast)) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Datos de apellidos inválidos, los carácteres válidos son mayúsculas y minúsculas",
-    });
-  } else if (Last.length > 25 || Last.length < 3) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para el apellido es de 25 y el mínimo es de 3!",
-    });
-  } else if (Cel == "") {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Número de celular inválido!",
-    });
-  } else if (Cel.length < 10) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Ingrese un número válido!",
-    });
-  } else if (Pass == "" || Pass != Pass.match(valPass)) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Datos de la contraseña inválidos",
-      text: "La contraseña debe tener al menos una letra mayúscula, al menos una letra minúscula, al menos un número, mínimo 8 carácteres y máximo 25",
-    });
-  } else if (Pass.length > 25 || Pass.length < 8) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para la contraseña es de 25 y el mínimo es de 8!",
-    });
-  } else if (Sel == "0") {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Seleccione un rol!",
-    });
-  } else {
-    const Usuarios = {
-      nombreUsu: Usu,
-      correo: Email,
-      nombre: Name,
-      apellidos: Last,
-      celular: Cel,
-      password: Pass,
-      rol: Sel,
-    };
-    fetch(urlUsuarios, {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(Usuarios),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    })
-      .then((resp) => resp.json())
-      .then((json) => {
-        if (json.msg == "Usuario creado.") {
-          Swal.fire({
-            icon: "success",
-            showConfirmButton: false,
-            text: json.msg,
-            timer: 1500,
-          });
-          abrirFormReg();
-          listarUsuarios();
-        } else {
-          Swal.fire({
-            icon: "warning",
-            confirmButtonText: "Aceptar",
-            text: json.msg,
-          });
-        }
-      });
-  }
-};
-document.getElementById("aggUsu").addEventListener("click", aggUsu);
-document.getElementById("aggUsu").addEventListener("click", listarUsuarios);
-
-const abrirFormAct = (Usu) => {
-  Usu = id
-  let formAct = document.getElementById("formulario2");
-  let fondo = document.getElementById("fondo2");
-  document.getElementById("tipoGastoL").classList.add("labelActRol");
-  document.getElementById("descGastL").classList.add("labelActRol");
-  document.getElementById("fechaL").classList.add("labelActRol");
-  document.getElementById("horaL").classList.add("labelActRol");
-  document.getElementById("valorL").classList.add("labelActRol");
-  document.getElementById("tipoGasto").value = Usu;
-
-  if (formAct.style.display === "block") {
-    formAct.style.display = "none";
-    fondo.style.display = "none";
-  } else {
-    formAct.style.display = "block";
-    fondo.style.display = "block";
-  }
-
-  // fetch(urlUsuarios, {
-  //   method: "GET",
-  //   mode: "cors",
-  //   headers: { "Content-type": "application/json; charset=UTF-8" },
-  // })
-  //   .then((resp) => resp.json())
-  //   .then(function (data) {
-  //     let listaPermisos = data.usuarios;
-
-  //     datos = listaPermisos.map(function (usuario) {
-  //       for (let i = 0; i < usuario.nombreUsu.length; i++) {
-  //         if (Usu == usuario.nombreUsu) {
-  //           id = usuario._id;
-  //           document.getElementById("Correo2").value = usuario.correo;
-  //           document.getElementById("numCel2").value = usuario.celular;
-  //           document.getElementById("Pass2").value = usuario.password;
-  //           break;
-  //         }
-  //       }
-  //     });
-  //   });
-};
-document.getElementById("btnMod").addEventListener("click", abrirFormAct);
-document.getElementById("canGast").addEventListener("click", abrirFormAct);
-
-const modificarUsu = () => {
-  const Email = document.getElementById("Correo2").value.charAt(0).toUpperCase() + document.getElementById("Correo2").value.slice(1).toLowerCase();
-  const Pass = document.getElementById("Pass2").value;
-  const Cel = document.getElementById("numCel2").value;
-  const Sel = document.getElementById("selRol2").value;
-  const valEmail = /^[\w\-._]+@[A-Za-z\d.-]{2,}\.[A-Za-z]{2,6}$/;
-  const valPass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,25}$/; // Contiene al menos una letra mayúscula, Contiene al menos una letra minúscula, Contiene al menos un dígito, Tiene una longitud mínima de 8 caracteres y maxima de 25.
-
-  let existeEmail = false;
-  fetch(urlUsuarios, {
-    method: "GET",
-    mode: "cors",
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  })
-    .then((resp) => resp.json())
-    .then(function (data) {
-      let listaUsuarios = data.usuarios;
-      datos = listaUsuarios.map(function (usuario) {
-        for (let i = 0; i < usuario.correo.length; i++) {
-          if (Email.toLowerCase() == usuario.correo.toLowerCase()) {
-            existeEmail = true;
-            return;
-          } else {
-            existeEmail = false;
-          }
-        }
-      });
-    });
-  console.log(existeEmail);
-  if (existeEmail) {
+const registrar = () => {
+  const tipoGasto = document.getElementById("tipoGasto").value;
+  let desc = document.getElementById("descGast").value;
+  const fecha = document.getElementById("Fecha").value;
+  const hora = document.getElementById("Hora").value;
+  const valor = document.getElementById("Valor").value;
+  if (tipoGasto == "" && fecha == "" && hora == "" && valor == "") {
     Swal.fire({
       icon: "error",
       confirmButtonText: "Aceptar",
-      text: "Ya existe ese correo.",
+      text: `Ingrese datos en el formulario primero!`,
     });
-  }
-
-  if (Email == "" && Pass == "" && Cel == "" && Sel == "0") {
+  } else if (tipoGasto == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "Llene el formulario primero!",
+      text: `Ingrese un tipo de gasto!`,
     });
-  } else if (Email == "" || Email != Email.match(valEmail)) {
+  } else if (fecha == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "Correo inválido, ejemplo de correo válido: ejemplo@gmail.com",
+      text: `Seleccione una fecha!`,
     });
-  } else if (Email.length > 40 || Email.length < 12) {
+  } else if (hora == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para el correo es de 40 y el mínimo es de 12!",
+      text: `Seleccione una hora!`,
     });
-  } else if (Cel == "") {
+  } else if (valor == "") {
     Swal.fire({
       icon: "warning",
       confirmButtonText: "Aceptar",
-      text: "Número de celular inválido!",
-    });
-  } else if (Cel.length < 10) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Ingrese un número válido!",
-    });
-  } else if (Pass == "" || Pass != Pass.match(valPass)) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Datos de la contraseña inválidos",
-      text: "debe contener al menos una letra mayúscula, al menos una letra minúscula, al menos un dígito, mínimo 8 caracteres y máximo 25",
-    });
-  } else if (Pass.length > 25 || Pass.length < 8) {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "El máximo de caracteres para la contraseña es de 25 y el mínimo es de 8!",
-    });
-  } else if (Sel == "0") {
-    Swal.fire({
-      icon: "warning",
-      confirmButtonText: "Aceptar",
-      text: "Seleccione un rol!",
+      text: `Ingrese un valor!`,
     });
   } else {
-    const usuario = {
-      nombreUsu: document.getElementById("Usu2").value,
-      correo: Email,
-      password: Pass,
-      celular: Cel,
-      rol: Sel,
-    };
-
-    fetch(urlUsuarios, {
-      method: "PUT",
-      mode: "cors",
-      body: JSON.stringify(usuario),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    })
-      .then((resp) => resp.json())
-      .then((json) => {
-        json.msg;
-      });
-
+    if (desc == "") {
+      desc = "Sin descripción.";
+    }
     Swal.fire({
       icon: "success",
-      showConfirmButton: false,
-      text: "Usuario actualizado correctamente...",
-      timer: 1200,
+      confirmButtonText: "Aceptar",
+      html: `Tipo de gasto: ${tipoGasto}<br>Fecha: ${fecha}<br>Hora: ${hora}<br>Descripción: ${desc}<br>Valor: $${valor}`,
     });
-    abrirFormAct();
-    listarUsuarios();
+    abrirFormReg();
   }
 };
+document.getElementById("registrar").addEventListener("click", registrar);
+
+const abrirFormAct = () => {
+  document.getElementById("tipoGasto2").value = "Arriendo";
+  document.getElementById("descGast2").value = "";
+  document.getElementById("Fecha2").value = "2023-10-01";
+  document.getElementById("Hora2").value = "13:00";
+  document.getElementById("Valor2").value = "1000000";
+  let formAgg = document.getElementById("formulario2");
+  let fond = document.getElementById("fondo2");
+  if (formAgg.style.display === "block") {
+    formAgg.style.display = "none";
+    fond.style.display = "none";
+  } else {
+    formAgg.style.display = "block";
+    fond.style.display = "block";
+  }
+  document.getElementById("tipoGastoL2").classList.add("labelActRol");
+  document.getElementById("valorL2").classList.add("labelActRol");
+};
+document.getElementById("cancelar2").addEventListener("click", abrirFormAct);
+
+const actualizar = () => {
+  const tipoGasto = document.getElementById("tipoGasto2").value;
+  let desc = document.getElementById("descGast2").value;
+  const fecha = document.getElementById("Fecha2").value;
+  const hora = document.getElementById("Hora2").value;
+  const valor = document.getElementById("Valor2").value;
+  if (tipoGasto == "" && fecha == "" && hora == "" && valor == "") {
+    Swal.fire({
+      icon: "error",
+      confirmButtonText: "Aceptar",
+      text: `Ingrese datos en el formulario primero!`,
+    });
+  } else if (tipoGasto == "") {
+    Swal.fire({
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+      text: `Ingrese un tipo de gasto!`,
+    });
+  } else if (fecha == "") {
+    Swal.fire({
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+      text: `Seleccione una fecha!`,
+    });
+  } else if (hora == "") {
+    Swal.fire({
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+      text: `Seleccione una hora!`,
+    });
+  } else if (valor == "") {
+    Swal.fire({
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+      text: `Ingrese un valor!`,
+    });
+  } else {
+    if (desc == "") {
+      desc = "Sin descripción.";
+    }
+    Swal.fire({
+      icon: "success",
+      confirmButtonText: "Aceptar",
+      html: `Tipo de gasto: ${tipoGasto}<br>Fecha: ${fecha}<br>Hora: ${hora}<br>Descripción: ${desc}<br>Valor: $${valor}`,
+    });
+  abrirFormAct();
+  }
+};
+document.getElementById("actualizar").addEventListener("click", actualizar);

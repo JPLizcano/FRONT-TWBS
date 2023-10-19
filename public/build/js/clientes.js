@@ -266,7 +266,7 @@ const abrirFormAct = (Usu) => {
 };
 document.getElementById("CanCli2").addEventListener("click", abrirFormAct);
 
-const modificarEmpl = () => {
+const modificarCli = () => {
   const Email = document.getElementById("Correo2").value.charAt(0).toUpperCase() + document.getElementById("Correo2").value.slice(1).toLowerCase();
   const Pass = document.getElementById("Pass2").value;
   const Cel = document.getElementById("numCel2").value;
@@ -340,6 +340,7 @@ const modificarEmpl = () => {
             timer: 1500,
           });
           listarClientes();
+          abrirFormAct();
         } else {
           Swal.fire({
             icon: "warning",

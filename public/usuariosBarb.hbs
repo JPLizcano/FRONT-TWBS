@@ -25,7 +25,7 @@
     <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="./build/css/estilos.css" rel="stylesheet" />
-    <link href="./build/css/userBarb.css" rel="stylesheet" />
+    <link href="./build/css/userClient.css" rel="stylesheet" />
 
   </head>
 
@@ -37,7 +37,20 @@
       </div>
       <div class="contBtnAgg"><a class="btnsConfi" id="btnAgg"><i class="fa fa-user-pen"></i></a></div>
       <div class="infoContent">
-        <div id="infoClient">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Correo electrónico</th>
+                <th>Número de celular</th>
+              </tr>
+            </thead>
+            <tbody id="infoUsu">
+            </tbody>
+          </table>
         </div>
       </div>
       <div id="fondo2">
@@ -48,25 +61,25 @@
               <i class="fa-solid fa-envelope iconForm"></i>
               <div class="input-field inpForm">
                 <input type="email" id="Correo2" class="form2" data-length="40" />
-                <label for="Correo" id="corL2">Ingrese su correo</label>
+                <label for="Correo2" id="corL2">Ingrese su correo</label>
               </div>
               <i class="fa-solid fa-lock iconForm"></i>
               <div class="input-field inpForm">
                 <input type="password" id="Pass2" class="form2" data-length="25" />
-                <label for="Pass" id="passL2">Ingrese una contraseña</label>
+                <label for="Pass2" id="passL2">Ingrese una contraseña</label>
               </div>
             </div>
             <div class="d-flex justify-content-center contForm">
               <i class="fa-solid fa-user iconForm"></i>
               <div class="input-field">
                 <input type="text" id="Usu2" class="form2" data-length="20" disabled />
-                <label for="Usu" id="usuL2">Ingrese un nombre de usuario</label>
+                <label for="Usu2" id="usuL2">Ingrese un nombre de usuario</label>
               </div>
               <i class="fa-solid fa-mobile-screen iconForm"></i>
               <div class="centrar">
                 <div class="input-field inpForm">
                   <input type="text" id="numCel2" class="form2" data-length="15" oninput="validarCelu('numCel2')" />
-                  <label for="numCel" id="numCelL2">Ingrese su número de celular</label>
+                  <label for="numCel2" id="numCelL2">Ingrese su número de celular</label>
                 </div>
               </div>
             </div>
@@ -88,7 +101,7 @@
               <th>Pago</th>
             </tr>
           </thead>
-          <tbody id="tablaRoles">
+          <tbody>
             <tr>
               <td>Corte de cabello</td>
               <td>$ 15.000</td>

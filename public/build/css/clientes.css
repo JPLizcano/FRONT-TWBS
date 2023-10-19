@@ -25,9 +25,9 @@ th {
 .form1,
 .form2 {
   font-size: 1vw !important;
-  color: white;
+  color: black;
   width: 100% !important;
-  border-bottom: 0.1vw solid #9e9e9e;
+  border-bottom: 0.1vw solid black !important;
 }
 
 i.iconForm {
@@ -82,7 +82,7 @@ i.iconForm {
 }
 
 span {
-  font-size: 0.8vw;
+  font-size: 0.8vw !important;
 }
 
 ul#select-options-df4084e5-32e5-3728-c72d-032e8ba8e563 {

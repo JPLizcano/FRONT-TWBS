@@ -24,9 +24,9 @@
   .form1,
   .form2 {
     font-size: 1vw !important;
-    color: white;
+    color: black;
     width: 100% !important;
-    border-bottom: 0.1vw solid #9e9e9e;
+    border-bottom: 0.1vw solid black !important;
   }
   
   i.iconForm {
@@ -142,4 +142,8 @@
 [type="submit"]:not(:disabled),
 button:not(:disabled) {
   margin: 0 0.5vw;
+}
+
+label {
+  font-size: 0.8vw !important;
 }

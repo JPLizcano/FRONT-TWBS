@@ -1,0 +1,14 @@
+#formulario,
+#formulario2 {
+  margin: 4% 36%;
+  background-image: radial-gradient(circle 23vw, beige, rgb(80, 0, 0));
+}
+
+.select-wrapper input.select-dropdown {
+  width: 16vw;
+}
+
+#contSelMov {
+  display: flex !important;
+  justify-content: start !important;
+}

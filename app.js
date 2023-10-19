@@ -91,6 +91,12 @@ app.get("/prov", (req, res) => {
   });
 });
 
+app.get("/hisMov", (req, res) => {
+  res.render("historiaDeMovimientos", {
+    twbs: "The Warrior Barber Shop",
+  });
+});
+
 app.get("/empl", (req, res) => {
   res.render("empleados", {
     twbs: "The Warrior Barber Shop",
@@ -121,14 +127,14 @@ app.get("/agendclient", (req, res) => {
   });
 });
 
-app.get("/agendbar", (req, res) => { 
-  res.render("agendaCitasBar", {
+app.get("/gastope", (req, res) => {
+  res.render("gastOpe", {
     twbs: "The Warrior Barber Shop",
   });
 });
 
-app.get("/gastope", (req, res) => {
-  res.render("gastOpe", {
+app.get("/citas", (req, res) => {
+  res.render("historialCitas", {
     twbs: "The Warrior Barber Shop",
   });
 });
@@ -141,6 +147,12 @@ app.get("/clientes", (req, res) => {
 
 app.get("/gestVentas", (req, res) => {
   res.render("gestionVentas", {
+    twbs: "The Warrior Barber Shop",
+  });
+});
+
+app.get("/servAten", (req, res) => {
+  res.render("serviciosAtendidos", {
     twbs: "The Warrior Barber Shop",
   });
 });
